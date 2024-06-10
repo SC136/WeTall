@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   font-family: Verdana, sans-serif;
   margin: 0;
@@ -11,9 +12,11 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
 .mySlides {
   display: none;
 }
+
 img {
   vertical-align: middle;
 }
@@ -124,6 +127,7 @@ img {
   from {
     opacity: 0.4;
   }
+
   to {
     opacity: 1;
   }
@@ -131,6 +135,7 @@ img {
 
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
+
   .prev,
   .next,
   .text {
