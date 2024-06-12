@@ -14,7 +14,7 @@ body {
 }
 
 .mySlides {
-  display: inline;
+  display: none;
 }
 
 img {
