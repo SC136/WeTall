@@ -40,10 +40,11 @@ img {
 }
 
 .gola {
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
     margin-top: 50px;
     padding: 20px;
+    border-radius: 25px;
     text-decoration: none;
 }
 
