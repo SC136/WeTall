@@ -39,6 +39,11 @@ img {
   text-decoration: none;
 }
 
+.gola {
+    background-color: black;
+    color: white;
+}
+
 .img1 {
   width: 100%;
   background-image: url(https://media.discordapp.net/attachments/879937987885006918/1236927334146379828/image.png?ex=66581c59&is=6656cad9&hm=84c3dbcc5b4bd756e2f224170420875f2e67a305b7f75f7521104bf7f6bb66de&=&format=webp&quality=lossless&width=1177&height=662);
