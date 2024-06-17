@@ -42,6 +42,9 @@ img {
 .gola {
     background-color: black;
     color: white;
+    margin-top: 50px;
+    padding: 20px;
+    text-decoration: none;
 }
 
 .img1 {
