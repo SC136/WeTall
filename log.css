@@ -7,7 +7,6 @@ body {
   background-color: #121212;
   color: #e0e0e0;
   position: relative;
-  overflow: hidden;
 }
 
 header {
@@ -73,10 +72,7 @@ footer {
   color: #fff;
   text-align: center;
   padding: 1rem;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  z-index: 1;
+  margin-top: auto;
 }
 
 footer p {
@@ -100,4 +96,15 @@ body::before {
   /* Increased opacity */
   z-index: 0;
   filter: blur(5px);
+}
+
+/* Ensure footer is pushed down by content */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
 }
