@@ -1,108 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>WeTall</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta property="og:title" content="WeTall | Home" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeTall | Home</title>
+  <link rel="stylesheet" href="index.css">
   <meta property="og:type" content="website" />
   <meta property="og:description" content="bicopter bichopper vtol" />
   <meta property="og:image" content="https://i.makeagif.com/media/12-07-2015/ZPiIUS.gif" />
   <meta property="og:url" content="https://sc.is-a.dev/WeTall/" />
   <meta name="theme-color" content="#000000" />
-  <link rel="stylesheet" href="index.css" />
 </head>
 
 <body>
-  <h1 class="tit">WeTall (Project Iron Flake)</h1>
-  <div class="slideshow-container">
-    <div class="mySlides fade">
-      <div class="numbertext">1 / 6</div>
-      <img src="https://i.imgur.com/ewZxY0z.jpg" style="width: 100%" />
-      <div class="text">3d model by raw scientist</div>
+  <header>
+    <div class="logo">
+      <a href="index.html">WeTall (Project Iron Flake)</a>
     </div>
-
-    <div class="mySlides fade">
-      <div class="numbertext">2 / 6</div>
-      <img src="https://i.imgur.com/ewZxY0z.jpg" style="width: 100%" />
-      <div class="text">3d model by raw scientist</div>
+  </header>
+  <main>
+    <div class="carousel">
+      <img src="https://i.imgur.com/ewZxY0z.jpg" alt="Image 1" class="carousel-image active">
+      <img src="https://i.imgur.com/LTjFZEg.png" alt="Image 2" class="carousel-image">
+      <img src="https://i.imgur.com/8EA1OCB.png" alt="Image 3" class="carousel-image">
+      <!-- add more images as needed -->
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
     </div>
-
-    <div class="mySlides fade">
-      <div class="numbertext">3 / 6</div>
-      <img src="https://i.imgur.com/LTjFZEg.png" style="width: 100%" />
-      <div class="text">size mockup by sc</div>
+    <div class="buttons">
+      <a href="teams" class="button">Team</a>
+      <a href="logs" class="button">Logs</a>
+      <a href="https://github.com/SC136/WeTall" class="button" target="_blank">GitHub</a>
     </div>
-
-    <div class="mySlides fade">
-      <div class="numbertext">4 / 6</div>
-      <img src="https://i.imgur.com/ewZxY0z.jpg" style="width: 100%" />
-      <div class="text">3d model by raw scientist</div>
-    </div>
-
-    <div class="mySlides fade">
-      <div class="numbertext">5 / 6</div>
-      <img src="https://i.imgur.com/8EA1OCB.png" style="width: 100%" />
-      <div class="text">end game mockup by sc</div>
-    </div>
-
-    <div class="mySlides fade">
-      <div class="numbertext">6 / 6</div>
-      <img src="https://i.imgur.com/ewZxY0z.jpg" style="width: 100%" />
-      <div class="text">irl scale by raw scientist</div>
-    </div>
-
-    <a class="prev" onclick="plusSlides(-1)">❮</a>
-    <a class="next" onclick="plusSlides(1)">❯</a>
-  </div>
-  <br />
-
-  <div style="text-align: center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-    <span class="dot" onclick="currentSlide(4)"></span>
-    <span class="dot" onclick="currentSlide(5)"></span>
-    <span class="dot" onclick="currentSlide(6)"></span>
-  </div>
-
-  <a class="tee" href="team">Meet The Team!</a>
-
-  <a class="gola" href="log.html">Our daily logs</a>
-
-  <footer> © 2024 Project Ironflake. All rights reserved.</footer>
-  <script>
-    let slideIndex = 1;
-    showSlides(slideIndex);
-
-    function plusSlides(n) {
-      showSlides((slideIndex += n));
-    }
-
-    function currentSlide(n) {
-      showSlides((slideIndex = n));
-    }
-
-    function showSlides(n) {
-      let i;
-      let slides = document.getElementsByClassName("mySlides");
-      let dots = document.getElementsByClassName("dot");
-      if (n > slides.length) {
-        slideIndex = 1;
-      }
-      if (n < 1) {
-        slideIndex = slides.length;
-      }
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex - 1].style.display = "block";
-      dots[slideIndex - 1].className += " active";
-    }
-  </script>
+  </main>
+  <footer>
+    <p>&copy; 2024 WeTall (Project Iron Flake)</p>
+  </footer>
+  <script src="script.js"></script>
 </body>
 
 </html>

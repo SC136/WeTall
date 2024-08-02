@@ -1,68 +1,51 @@
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Verdana, sans-serif;
+html, body {
+  height: 100%;
   margin: 0;
-  background-image: url(https://i.makeagif.com/media/12-07-2015/ZPiIUS.gif);
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+  position: relative;
 }
 
-.mySlides {
+header {
+  background-color: #1f1f1f;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+header .logo a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+main {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.carousel {
+  position: relative;
+  max-width: 100%;
+  margin-bottom: 2rem;
+}
+
+.carousel-image {
+  width: 100%;
   display: none;
 }
 
-img {
-  vertical-align: middle;
+.carousel-image.active {
+  display: block;
 }
 
-.tit {
-  text-align: center;
-  background-color: black;
-  padding: 20px;
-  border-radius: 25px;
-  color: white;
-  text-decoration: none;
-}
-
-.tee {
-  margin-top: 50px;
-  background-color: black;
-  padding: 20px;
-  border-radius: 25px;
-  color: white;
-  text-decoration: none;
-}
-
-.gola {
-    background-color: white;
-    color: black;
-    margin-top: 40px;
-    padding: 10px;
-    border-radius: 25px;
-    text-decoration: none;
-}
-
-.img1 {
-  width: 100%;
-  background-image: url(https://media.discordapp.net/attachments/879937987885006918/1236927334146379828/image.png?ex=66581c59&is=6656cad9&hm=84c3dbcc5b4bd756e2f224170420875f2e67a305b7f75f7521104bf7f6bb66de&=&format=webp&quality=lossless&width=1177&height=662);
-}
-
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  /* margin: 100px 0 0 0; */
-}
-
-/* Next & previous buttons */
-.prev,
-.next {
+.prev, .next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -77,77 +60,73 @@ img {
   user-select: none;
 }
 
-/* Position the "next button" to the right */
+.prev {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
 .next {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
 
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+.buttons {
+  margin-top: 2rem;
 }
 
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
+.button {
+  background-color: #1f1f1f;
+  color: #fff;
+  padding: 1rem 2rem;
+  margin: 0.5rem;
+  text-decoration: none;
+  border-radius: 5px;
   display: inline-block;
-  transition: background-color 0.6s ease;
+  transition: background-color 0.3s;
 }
 
-.active,
-.dot:hover {
-  background-color: #717171;
+.button:hover {
+  background-color: #333;
 }
 
-/* Fading animation */
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
+footer {
+  background-color: #1f1f1f;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
 }
 
-@keyframes fade {
-  from {
-    opacity: 0.4;
-  }
-
-  to {
-    opacity: 1;
-  }
+footer p {
+  margin: 0;
 }
 
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
+/* Background Grid */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(45deg, #222 25%, transparent 25%), 
+              linear-gradient(135deg, #222 25%, transparent 25%), 
+              linear-gradient(45deg, transparent 75%, #222 75%), 
+              linear-gradient(135deg, transparent 75%, #222 75%);
+  background-size: 20px 20px;
+  opacity: 0.2; /* Increased opacity */
+  z-index: 0;
+  filter: blur(2px); /* Reduced blur */
+  pointer-events: none;
+}
 
-  .prev,
-  .next,
-  .text {
-    font-size: 11px;
-  }
+/* Ensure footer is pushed down by content */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
 }
