@@ -74,10 +74,10 @@ main h1 {
 
 @keyframes glow {
     from {
-        text-shadow: 0 0 5px red, 0 0 10px red, 0 0 20px red, 0 0 30px yellow, 0 0 40px yellow, 0 0 50px blue, 0 0 60px blue;
+        text-shadow: 1px 1px 5px red, 1px 1px 10px red, 1px 1px 20px red, 1px 1px 30px yellow, 1px 1px 40px yellow, 1px 1px 50px blue, 1px 1px 60px blue;
     }
     to {
-        text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red, 0 0 40px yellow, 0 0 50px yellow, 0 0 60px blue, 0 0 70px blue;
+        text-shadow: 1px 1px 10px red, 1px 1px 20px red, 1px 1px 30px red, 1px 1px 40px yellow, 1px 1px 50px yellow, 1px 1px 60px blue, 1px 1px 70px blue;
     }
 }
 
