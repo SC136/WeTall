@@ -68,17 +68,17 @@ main h1 {
 }
 
 .user-name {
-    text-decoration: none;
-    animation: glow 1.5s infinite alternate;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
+  animation: glow 2s infinite;
 }
 
 @keyframes glow {
-    from {
-        text-shadow: 1px 1px 5px red, 1px 1px 10px red, 1px 1px 20px red, 1px 1px 30px yellow, 1px 1px 40px yellow, 1px 1px 50px blue, 1px 1px 60px blue;
-    }
-    to {
-        text-shadow: 1px 1px 10px red, 1px 1px 20px red, 1px 1px 30px red, 1px 1px 40px yellow, 1px 1px 50px yellow, 1px 1px 60px blue, 1px 1px 70px blue;
-    }
+  from {
+      left: -150%;
+  }
+  to {
+      left: 150%;
+  }
 }
 
 footer {
