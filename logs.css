@@ -67,7 +67,7 @@ main h1 {
   line-height: 1.5;
 }
 
-user-name::before {
+/* user-name::before {
   content: '';
   position: absolute;
   top: 0;
@@ -76,15 +76,50 @@ user-name::before {
   height: 100%;
   background: linear-gradient(120deg, rgba(190, 11, 11, 0) 0%, rgba(177, 211, 26, 0.5) 50%, rgba(90, 121, 167, 0) 100%);
   animation: glow 15s infinite;
-}
+} */
 
-@keyframes glow {
+/* @keyframes glow {
   from {
       left: -150%;
   }
   to {
       left: 150%;
   }
+} */
+
+@keyframes rgb {
+  0% {
+    text-shadow: 0 0 10px #ff0000, 0 0 30px #ff0000, 0 0 30px #ff0000,
+      0 0 40px #ff0000;
+  }
+  20% {
+    text-shadow: 0 0 10px #ff7f00, 0 0 30px #ff7f00, 0 0 30px #ff7f00,
+      0 0 40px #ff7f00;
+  }
+  40% {
+    text-shadow: 0 0 10px #ffff00, 0 0 30px #ffff00, 0 0 30px #ffff00,
+      0 0 40px #ffff00;
+  }
+  60% {
+    text-shadow: 0 0 10px #00ff00, 0 0 30px #00ff00, 0 0 30px #00ff00,
+      0 0 40px #00ff00;
+  }
+  80% {
+    text-shadow: 0 0 10px #0000ff, 0 0 30px #0000ff, 0 0 30px #0000ff,
+      0 0 40px #0000ff;
+  }
+  100% {
+    text-shadow: 0 0 10px #8b00ff, 0 0 30px #8b00ff, 0 0 30px #8b00ff,
+      0 0 40px #8b00ff;
+  }
+}
+
+.user-name {
+  transition: text-shadow 0.3s ease-in-out;
+}
+
+.user-name:hover {
+  animation: rgb 2s infinite;
 }
 
 footer {
