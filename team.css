@@ -211,7 +211,7 @@ ul.topnav li a:hover {background: rgba( 255, 255, 255, 0.50 );}
 	width: 200px;
 }
 
-.teamrole {
+/* .teamrole {
     padding: 18.025px;
     background: rgb(0, 0, 0);
     box-shadow: 0px 0px 20px 0px rgb(0 0 0 / 37%);
@@ -219,6 +219,21 @@ ul.topnav li a:hover {background: rgba( 255, 255, 255, 0.50 );}
     -webkit-backdrop-filter: blur( 7px );
     width: -webkit-fill-available;
     border-radius: 25px;
+} */
+
+.teamrole {
+  background-color: #1f1f1f;
+  color: #fff;
+  padding: 1rem 2rem;
+  margin: 0.5rem;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.teamrole:hover {
+  background-color: #333;
 }
 
 .teamt {
