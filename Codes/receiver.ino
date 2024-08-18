@@ -1,67 +1,67 @@
-
 #include <SPI.h>
 #include <nRF24L01.h>
 #include <RF24.h>
 #include <Servo.h>
 
-const uint64_t pipeIn = 0xE8E8F0F0E1LL;
+// radio
+RF24 radio(7, 8); // CE, CSN
 
-RF24 radio(9, 10);
+// address for the radio communication
+const byte address[6] = "00001";
 
-struct ReceivedData {
-    byte ch1_throttle;
-    byte ch2_servo;
+// motor control
+const int motorPin = 3;
+int throttleValue = 0;
+
+// servo control
+Servo servoX;
+Servo servoY;
+
+struct Data_Package {
+  int throttle;
+  int servoX;
+  int servoY;
+};
+
+Data_Package data;
+
+void setup() {
+  Serial.begin(9600); // initialize serial monitor
+  radio.begin();
+  radio.openReadingPipe(0, address);
+  radio.setPALevel(RF24_PA_MIN);
+  radio.startListening();
+
+  pinMode(motorPin, OUTPUT);
+
+  // attach servos to pins
+  servoX.attach(9);
+  servoY.attach(10);
 }
 
-ReceivedData data;
+void loop() {
+  if (radio.available()) {
+    radio.read(&data, sizeof(Data_Package));
 
-Servo ch1;
-Servo ch2;
+    // map and control the motor speed (throttle)
+    throttleValue = map(data.throttle, 0, 1023, 0, 255);
+    analogWrite(motorPin, throttleValue);
 
-int ch1_value = 0;
-int ch2_value = 0;
+    // map and control the servos
+    int servoXVal = map(data.servoX, 0, 1023, 0, 180);
+    int servoYVal = map(data.servoY, 0, 1023, 0, 180);
 
-void ResetData()
-{
-    data.ch1_throttle = 0;
-    data.ch2_servo = 0;
-}
+    servoX.write(servoXVal);
+    servoY.write(servoYVal);
 
-void setup()
-{
-    radio.begin();
-    radio.openReadingPipe (1,pipeIn);
-    radio.setAutoAck(false);
-    radio.setDataRate(RF24_250KBPS);
-    radio.startListening();
-    
-    ResetData();
-    
-    ch1.attach(2);
-    ch2.attach(3);
-}
+    // log data to serial monitor
+    Serial.print("Throttle: ");
+    Serial.print(throttleValue);
+    Serial.print(" | ServoX: ");
+    Serial.print(servoXVal);
+    Serial.print(" | ServoY: ");
+    Serial.println(servoYVal);
+  }
 
-unsigned long lastRecvTime = 0;
-
-void ReceiveData()
-{
-    while ( radio.available() ) {
-        radio.read(&data, sizeof(ReceivedData));
-        lastRecvTime = millis();
-    }
-}
-
-void loop()
-{
-    ReceiveData();
-    unsigned long now = millis();
-    if ( now - lastRecvTime > 1000 ) {
-        ResetData();
-    }
-    
-    ch1_value = map(data.ch1_throttle, 0, 255, 1000, 2000);
-    ch2_value = map(data.ch2_servo, 0, 255, 0, 180);
-
-    ch1.writeMicroseconds(ch1_value);
-    ch2.write(ch2_value);
+  delay(20);
 }
