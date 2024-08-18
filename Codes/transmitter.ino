@@ -2,35 +2,46 @@
 #include <nRF24L01.h>
 #include <RF24.h>
 
-const uint64_t pipeOut = 0xE8E8F0F0E1LL;
+// radio
+RF24 radio(7, 8); // CE, CSN
 
-RF24 radio(7, 8);
+// address for radio communication
+const byte address[6] = "00001";
 
-struct DataToBeSent {
-  byte ch1_throttle;
-  byte ch2_servo;
+// joystick pins
+const int joy1X = A0;
+const int joy1Y = A1;
+const int joy2X = A2;
+const int joy2Y = A3;
+
+struct Data_Package {
+  int throttle;
+  int servoX;
+  int servoY;
 };
 
-DataToBeSent data;
-
-void ResetData() {
-  data.ch1_throttle = 0;
-  data.ch2_servo = 0;
-}
+Data_Package data;
 
 void setup() {
   radio.begin();
+  radio.openWritingPipe(address);
+  radio.setPALevel(RF24_PA_MIN);
   radio.stopListening();
-  radio.openWritingPipe(pipeOut);
-  radio.setAutoAck(false);
-  radio.setDataRate(RF24_250KBPS);
 
-  ResetData();
+  pinMode(joy1X, INPUT);
+  pinMode(joy1Y, INPUT);
+  pinMode(joy2X, INPUT);
+  pinMode(joy2Y, INPUT);
 }
 
 void loop() {
-  data.ch1_throttle = map(analogRead(A0), 0, 1024, 0, 255);
-  data.ch2_servo = map(analogRead(A1), 0, 1024, 0, 255);
+  // read the joystick values
+  data.throttle = analogRead(joy1Y); // for throttle control
+  data.servoX = analogRead(joy2X);   // for servo X-axis
+  data.servoY = analogRead(joy2Y);   // for servo Y-axis
 
-  radio.write(&data, sizeof(DataToBeSent));
+  // send the data
+  radio.write(&data, sizeof(Data_Package));
+
+  delay(20);
 }
