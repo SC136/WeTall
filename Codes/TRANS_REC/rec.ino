@@ -69,6 +69,10 @@ void loop() {
     float vOut = (sensorValue * vPow) / 4095.0;
     batteryData.voltage = vOut * (r1 + r2) / r2;
 
+    // Serial.print("Battery Voltage: ");
+    // Serial.print(batteryData.voltage);
+    // Serial.println("V");
+
     if (radio.available()) {
         // Read incoming data
         radio.read(&joystickData, sizeof(joystickData));
