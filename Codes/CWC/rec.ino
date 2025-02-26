@@ -43,6 +43,11 @@ void setup() {
     servo1.write(90); 
     servo2.write(90);
 
+    // Initialize both ESCs with minimum throttle
+    sendThrottleSignal(escPin1, 1000);
+    sendThrottleSignal(escPin2, 1000);
+    delay(2000); // Wait for ESCs to initialize
+
     Serial.println("Setup complete. Waiting for data...");
 }
 
@@ -58,9 +63,17 @@ void loop() {
         Serial.print(", Same: ");
         Serial.println(joystickData.sm);
 
+        // Map joystick data to ESC throttle range
+        int throttle1 = map(joystickData.bldc, 0, 1023, 1100, 2000); // Set minimum throttle to 1100
+        int throttle2 = map(joystickData.bldc, 0, 1023, 1100, 2000); // Set minimum throttle to 1100
 
-       int servosame1 = map(joystickData.sm, 0, 1023, 0, 180);
-       int servosame2 = map(joystickData.sm, 0, 1023, 180, 0);
+        // Send throttle signal to ESCs
+        sendThrottleSignal(escPin1, throttle1);
+        sendThrottleSignal(escPin2, throttle2);
+
+        // Control servos
+        int servosame1 = map(joystickData.sm, 0, 1023, 0, 180);
+        int servosame2 = map(joystickData.sm, 0, 1023, 180, 0);
 
         if (servosame1 >= 0 && servosame1 <= 127) {
             servo1.write(servosame1);
@@ -70,8 +83,8 @@ void loop() {
             servo2.write(servosame2);
         }
 
-       int servoopp1 = map(joystickData.opp, 0, 1023, 180, 0);
-       int servoopp2 = map(joystickData.opp, 0, 1023, 180, 0);
+        int servoopp1 = map(joystickData.opp, 0, 1023, 180, 0);
+        int servoopp2 = map(joystickData.opp, 0, 1023, 180, 0);
 
         if (servoopp1 >= 53 && servoopp1 <= 135) {
             servo1.write(servoopp1);
@@ -80,13 +93,15 @@ void loop() {
         if (servoopp2 >= 53 && servoopp2 <= 135) {
             servo2.write(servoopp2);
         }
-        
-       
-
-
-
-       
 
         delay(100);
     }
+}
+
+// Function to send PWM signal to ESC
+void sendThrottleSignal(int pin, int pulse) {
+    digitalWrite(pin, HIGH);
+    delayMicroseconds(pulse);
+    digitalWrite(pin, LOW);
+    delayMicroseconds(20000 - pulse); // Maintain 50Hz (20ms period)
 }
