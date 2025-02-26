@@ -28,7 +28,7 @@ void setup() {
 
 void loop() {
     // Read joystick values
-    joystickData.bldc = analogRead(A1); // Read BLDC throttle control
+    joystickData.bldc = analogRead(A0); // Read BLDC throttle control
     joystickData.opp = analogRead(A3);   // Read opposite servo control
     joystickData.sm = analogRead(A2);    // Read same servo control
 
@@ -49,4 +49,3 @@ void loop() {
 
     delay(100); // Adjust delay as needed for stability
 }
-
