@@ -34,11 +34,15 @@ main {
   position: relative;
   max-width: 100%;
   margin-bottom: 2rem;
+  height: 450 px;
+  overflow: hidden;
 }
 
 .carousel-image {
   width: 100%;
+  height: 100%;
   display: none;
+  object-fit: contain;
 }
 
 .carousel-image.active {
