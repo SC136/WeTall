@@ -35,7 +35,7 @@ main {
   width: 100%;
   max-width: 800px;
   margin: 0 auto 2rem auto;
-  height: 450 px;
+  height: 450px;
   overflow: hidden;
   background-color: #1a1a1a;
 }
@@ -48,13 +48,11 @@ main {
   height: 100%;
   display: none;
   object-fit: contain;
-  opacity: 0;
-  transition: opacity 0.3s ease;
   object-position: center;
 }
 
 .carousel-image.active {
-  opacity: 1;
+  display: block;
 }
 
 .prev, .next {
