@@ -32,21 +32,29 @@ main {
 
 .carousel {
   position: relative;
-  max-width: 100%;
-  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
   height: 450 px;
   overflow: hidden;
+  background-color: #1a1a1a;
 }
 
 .carousel-image {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   display: none;
   object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  object-position: center;
 }
 
 .carousel-image.active {
-  display: block;
+  opacity: 1;
 }
 
 .prev, .next {
