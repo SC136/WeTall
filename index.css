@@ -37,7 +37,7 @@ main {
   margin: 0 auto 2rem auto;
   height: 450px;
   overflow: hidden;
-  background-color: #1a1a1a;
+  background-color: transparent;
 }
 
 .carousel-image {
