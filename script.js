@@ -12,9 +12,11 @@ function showSlides(n) {
 }
 
 document.querySelector(".prev").addEventListener("click", () => {
+    console.log("Previous button clicked");
     showSlides(--slideIndex);
 });
 
 document.querySelector(".next").addEventListener("click", () => {
+    console.log("Next button clicked");
     showSlides(++slideIndex);
 });
