@@ -1,51 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WeTall | Home</title>
-  <link rel="shortcut icon" href="Assets/vtol.png" type="image/x-icon" />
-  <link rel="stylesheet" href="index.css">
-  <meta property="og:type" content="website" />
-  <meta property="og:description" content="bicopter bichopper vtol" />
-  <meta property="og:image" content="https://i.makeagif.com/media/12-07-2015/ZPiIUS.gif" />
-  <meta property="og:url" content="https://sc.is-a.dev/WeTall/" />
-  <meta name="theme-color" content="#000000" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeTall VTOL Bicopter Project</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="WeTall VTOL Bicopter project - an innovative drone with vertical takeoff and landing capabilities">
+    <meta name="keywords" content="VTOL, bicopter, drone, engineering, project">
+    <meta name="author" content="WeTall Team">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="WeTall VTOL Bicopter Project">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="WeTall VTOL Bicopter project - an innovative drone with vertical takeoff and landing capabilities">
+    <meta property="og:image" content="https://i.imgur.com/ewZxY0z.jpg">
+    <meta property="og:url" content="https://sc.is-a.dev/WeTall/">
+    <meta name="theme-color" content="#1a1a1a">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="Assets/vtol.png" type="image/x-icon">
+    
+    <!-- Import the model-viewer component -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+<body id="page-top">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <h1>WeTall VTOL Bicopter Project</h1>
+    
+    <main id="main-content" class="model-container">
+        <!-- Model Loading Animation -->
+        <div class="loading-container">
+            <div class="loading-spinner"></div>
+            <p>Loading 3D Model...</p>
+        </div>
+        
+        <!-- Use model-viewer component with improved accessibility -->
+        <model-viewer 
+            src="models/vtol_model.glb" 
+            alt="Interactive 3D model of the WeTall VTOL Bicopter"
+            camera-controls
+            auto-rotate
+            orientation="100 90 0"
+            shadow-intensity="1"
+            ar
+            ar-modes="webxr scene-viewer quick-look"
+            poster="Assets/model-poster.png"
+            loading="eager"
+            reveal="auto"
+            ar-status="not-presenting"
+            aria-label="A 3D model of the WeTall VTOL Bicopter that you can interact with">
+            <div class="progress-bar hide" slot="progress-bar">
+                <div class="update-bar"></div>
+            </div>
+        </model-viewer>
+    </main>
+    
+    <!-- Button Navigation -->
+    <div class="button-container">
+        <a href="team.html" class="nav-button" aria-label="View Team Members">Team</a>
+        <a href="logs.html" class="nav-button" aria-label="View Project Logs">Logs</a>
+        <a href="gallery.html" class="nav-button" aria-label="View Project Gallery">Gallery</a>
+        <a href="https://github.com/SC136/WeTall" class="nav-button github-btn" aria-label="View Project on GitHub" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i> GitHub
+        </a>
+    </div>
+    
+    <!-- Social Media Links -->
+    <div class="social-container">
+        <a href="#" class="social-button" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-button" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-button" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+    
+    <!-- Contact form removed -->
 
-<body>
-  <header>
-    <div class="logo">
-      <a href="index.html">WeTall (Project Iron Flake)</a>
-    </div>
-  </header>
-  <main>
-    <div class="carousel">
-      <img src="https://i.imgur.com/ewZxY0z.jpg" alt="Image 1" class="carousel-image active">
-      <img src="https://i.imgur.com/LTjFZEg.png" alt="Image 2" class="carousel-image">
-      <img src="https://i.imgur.com/8EA1OCB.png" alt="Image 3" class="carousel-image">
-      <img src="https://i.imgur.com/u11HjK7.png" alt="Image 4" class="carousel-image">
-      <img src="https://i.imgur.com/nh90uR9.jpeg" alt="Image 5" class="carousel-image">
-      <img src="https://i.imgur.com/j4ytFGS.jpeg" alt="Image 6" class="carousel-image">
-      <img src="https://i.imgur.com/GNoUhbZ.png" alt="Image 7" class="carousel-image">
-      <img src="https://i.imgur.com/YOXTKkN.png" alt="Image 8" class="carousel-image">
-      <img src="https://imgur.com/ylfd5oD.png" alt="Image 9" class="carousel-image">
-      <img src="https://imgur.com/tPvD44n.png" alt="Image 10" class="carousel-image">
-      <img src="https://imgur.com/FejlC4e.png" alt="Image 11" class="carousel-image">
-      <button class="prev">&#10094;</button>
-      <button class="next">&#10095;</button>
-    </div>
-    <div class="buttons">
-      <a href="team" class="button">Team</a>
-      <a href="logs" class="button">Logs</a>
-      <a href="https://github.com/SC136/WeTall" class="button" target="_blank">GitHub</a>
-    </div>
-  </main>
-  <footer>
-    <p>&copy; 2024 WeTall (Project Iron Flake)</p>
-  </footer>
-  <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2025 WeTall</p>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#page-top" id="back-to-top-btn" title="Go to top" aria-label="Back to top">&#8679;</a>
+
+    <script src="script.js"></script>
 </body>
-
 </html>

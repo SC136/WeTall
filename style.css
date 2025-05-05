@@ -1,0 +1,753 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+:root {
+    /* Color Variables */
+    --primary-dark: #1a1a1a;
+    --secondary-dark: #252525;
+    --tertiary-dark: #333;
+    --light-text: #e0e0e0;
+    --white-text: #ffffff;
+    --muted-text: #a0a0a0;
+    --accent-teal: #ffffff; /* Changed from #03dac6 to white */
+    --accent-teal-dark: #bbbbbb; /* Changed to a darker gray for better hover contrast */
+    --accent-purple: #bb86fc;
+    --accent-purple-dark: #9a67ea;
+    --nav-link-color: #e0e0e0; /* New color for navbar links instead of purple */
+}
+
+/* Accessibility Improvements */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    padding: 8px 12px;
+    background-color: var(--accent-teal);
+    color: var(--primary-dark);
+    z-index: 1001;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    outline: 2px solid var(--accent-teal);
+    outline-offset: 2px;
+    top: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--primary-dark);
+    color: var(--light-text);
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: var(--white-text);
+    font-weight: 500;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+/* Links */
+a {
+    color: var(--accent-purple);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover, a:focus {
+    color: var(--white-text);
+    text-decoration: underline;
+}
+
+/* Focus Styles - Modified for visual preference */
+:focus {
+    outline: none; /* Remove default outline */
+}
+
+/* Add subtle focus styles only for keyboard users */
+.skip-link:focus {
+    outline: 2px solid var(--accent-teal);
+    outline-offset: 2px;
+    top: 0;
+}
+
+/* Apply custom focus styles to interactive elements that need them for accessibility */
+.nav-button:focus-visible, 
+.social-button:focus-visible,
+.filter-btn:focus-visible,
+.close-btn:focus-visible,
+#back-to-top-btn:focus-visible {
+    box-shadow: 0 0 0 2px var(--accent-teal);
+    outline: none;
+}
+
+/* Header for subpages */
+header {
+    width: 100%;
+    background-color: var(--secondary-dark);
+    padding: 10px 0;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 10px 0;
+}
+
+nav ul li {
+    margin: 5px 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--nav-link-color); /* Changed from purple to light gray */
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+nav ul li a:hover, nav ul li a:focus {
+    color: var(--white-text);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+nav ul li a.active {
+    color: var(--white-text);
+    border-bottom: 2px solid var(--accent-teal);
+}
+
+/* Model Viewer Specific (index.html) */
+.model-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+/* Loading Animation */
+.loading-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(26, 26, 26, 0.9);
+    z-index: 2;
+    transition: opacity 0.5s ease;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--accent-teal);
+    animation: spin 1s ease-in-out infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading-container p {
+    color: var(--white-text);
+    font-size: 1rem;
+}
+
+model-viewer {
+    width: 90%;
+    max-width: 1000px;
+    height: 70vh;
+    background-color: transparent;
+}
+
+/* Button Navigation (index.html) */
+.button-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.nav-button {
+    padding: 12px 25px;
+    font-size: 16px;
+    color: var(--primary-dark); /* Changed text color to dark for better contrast on white buttons */
+    background-color: var(--accent-teal);
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.nav-button:hover, .nav-button:focus {
+    background-color: var(--accent-teal-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    color: var(--primary-dark);
+    border: 1px solid var(--primary-dark); /* Adding a border for better hover distinction */
+}
+
+.nav-button:active {
+    transform: translateY(-1px);
+}
+
+.github-btn {
+    background-color: #24292e;
+    color: var(--white-text); /* Explicitly setting text color to white */
+}
+
+.github-btn:hover, .github-btn:focus {
+    background-color: #444;
+    color: var(--white-text);
+    border-color: var(--white-text);
+}
+
+/* Social Media Links */
+.social-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.social-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--tertiary-dark);
+    color: var(--white-text);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.social-button:hover, .social-button:focus {
+    transform: translateY(-3px);
+    background-color: var(--accent-purple);
+    color: var(--tertiary-dark);
+    text-decoration: none;
+}
+
+/* Main content area for subpages */
+main {
+    width: 80%;
+    max-width: 900px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: var(--primary-dark);
+    border-radius: 8px;
+    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); */
+}
+
+/* Override main width for gallery page */
+.gallery-page main {
+    width: 95%;
+    max-width: none;
+    background-color: transparent;
+    padding: 0;
+}
+
+/* Gallery Styles */
+.gallery-container {
+    padding: 15px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.gallery-item {
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    margin: 0 7px 15px;
+    width: 31%;
+    float: left;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover, .gallery-item:focus-within {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    transform: translateY(-5px);
+}
+
+.gallery-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments for Masonry columns */
+@media (max-width: 960px) {
+    .gallery-item {
+        width: calc(50% - 14px);
+    }
+}
+
+@media (max-width: 520px) {
+    .gallery-item {
+        width: 100%;
+    }
+}
+
+/* Logs Page Styles */
+.log-filter {
+    margin-bottom: 25px;
+    background-color: var(--tertiary-dark);
+    padding: 15px;
+    border-radius: 6px;
+}
+
+.log-filter label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.log-filter input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: var(--white-text);
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 6px 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: var(--light-text);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.filter-btn.active {
+    background-color: var(--accent-teal);
+    color: var(--primary-dark);
+    border-color: var(--accent-teal);
+}
+
+.logs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.log-entry {
+    background-color: var(--tertiary-dark);
+    padding: 15px 20px;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+    border-left: 4px solid var(--accent-teal);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.log-entry:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.log-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 8px;
+}
+
+.log-header h2 {
+    margin: 0;
+    color: var(--accent-teal);
+    font-size: 1.4em;
+}
+
+.log-date {
+    color: var(--muted-text);
+    font-size: 0.9em;
+    white-space: nowrap;
+    margin-left: 15px;
+}
+
+.log-content p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.log-content ol, .log-content ul {
+    padding-left: 25px;
+    margin-top: 10px;
+}
+
+.log-content li {
+    margin-bottom: 5px;
+}
+
+.user-name {
+    font-style: italic;
+    color: var(--accent-purple);
+}
+
+/* Team Page Styles */
+.team-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    padding: 15px;
+}
+
+.team-card {
+    background-color: var(--tertiary-dark);
+    padding: 25px 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+}
+
+.team-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 4px solid #444;
+    transition: all 0.3s ease;
+}
+
+.team-card:hover .team-avatar {
+    border-color: var(--accent-teal);
+    transform: scale(1.05);
+}
+
+.team-name {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: var(--white-text);
+    font-size: 1.5em;
+}
+
+.team-role {
+    color: var(--accent-teal);
+    font-size: 1.1em;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.team-social {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.team-social a {
+    color: var(--light-text);
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+}
+
+.team-social a:hover {
+    color: var(--accent-purple);
+    transform: scale(1.2);
+}
+
+/* Animation classes */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Back to Top Button */
+#back-to-top-btn {
+    display: inline-block;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: var(--accent-teal);
+    color: var(--primary-dark);
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 18px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#back-to-top-btn:hover {
+    background-color: var(--accent-teal-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#back-to-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 85%;
+    max-height: 85vh;
+    object-fit: contain;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.modal-caption {
+    color: var(--light-text);
+    text-align: center;
+    padding: 10px;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: var(--white-text);
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background-color: transparent;
+    line-height: 0.6;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--accent-teal);
+    text-decoration: none;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Add Animation (optional) */
+.modal-content {
+    animation-name: zoom;
+    animation-duration: 0.4s;
+}
+
+@keyframes zoom {
+    from {transform:scale(0.5); opacity: 0;}
+    to {transform:scale(1); opacity: 1;}
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+    padding: 20px 0;
+    text-align: center;
+    color: var(--muted-text);
+    width: 100%;
+    background-color: #1f1f1f;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+footer a {
+    color: var(--accent-purple);
+    margin: 0 10px;
+}
+
+footer a:hover {
+    color: var(--accent-teal);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .model-container {
+        height: 50vh;
+    }
+    
+    model-viewer {
+        height: 50vh;
+    }
+    
+    main {
+        width: 90%;
+        padding: 15px;
+    }
+    
+    .team-container {
+        gap: 20px;
+    }
+    
+    .nav-button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    
+    .contact-container {
+        padding: 15px;
+    }
+    
+    .close-btn {
+        top: 10px;
+        right: 20px;
+        font-size: 30px;
+    }
+    
+    .modal-content {
+        max-width: 95%;
+        max-height: 80vh;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.7rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    nav ul li {
+        margin: 5px 0;
+    }
+    
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .nav-button {
+        width: 80%;
+    }
+    
+    .team-avatar {
+        width: 120px;
+        height: 120px;
+    }
+    
+    #back-to-top-btn {
+        bottom: 20px;
+        right: 20px;
+        padding: 8px 12px;
+        font-size: 16px;
+    }
+}

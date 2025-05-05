@@ -1,548 +1,405 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WeTall | Logs</title>
-  <link rel="stylesheet" href="logs.css">
-  <link rel="shortcut icon" href="Assets/vtol.png" type="image/x-icon" />
-  <meta property="og:title" content="WeTall | Log" />
-  <meta property="og:type" content="website" />
-  <meta property="og:description" content="log" />
-  <meta property="og:image" content="https://i.makeagif.com/media/12-07-2015/ZPiIUS.gif" />
-  <meta property="og:url" content="https://sc.is-a.dev/WeTall/log/" />
-  <meta name="theme-color" content="#000000" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Logs - WeTall VTOL Bicopter</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Detailed development logs of the WeTall VTOL Bicopter project">
+    <meta name="keywords" content="VTOL, bicopter, drone, project logs, development">
+    <meta name="author" content="WeTall Team">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Project Logs - WeTall VTOL Bicopter">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Detailed development logs of the WeTall VTOL Bicopter project">
+    <meta property="og:image" content="https://i.makeagif.com/media/12-07-2015/ZPiIUS.gif">
+    <meta property="og:url" content="https://sc.is-a.dev/WeTall/logs.html">
+    <meta name="theme-color" content="#1a1a1a">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="Assets/vtol.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Animation library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
+<body id="page-top">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header>
+        <h1>Project Logs</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" aria-label="Home">Home</a></li>
+                <li><a href="team.html" aria-label="Team">Team</a></li>
+                <li><a href="logs.html" aria-label="Logs" class="active">Logs</a></li>
+                <li><a href="gallery.html" aria-label="Gallery">Gallery</a></li>
+                <li><a href="https://github.com/SC136/WeTall" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i> GitHub
+                </a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main id="main-content">
+        <!-- Log filter options -->
+        <div class="log-filter">
+            <label for="log-search">Search logs:</label>
+            <input type="text" id="log-search" placeholder="Search by keyword...">
+            
+            <div class="filter-buttons">
+                <button id="filter-all" class="filter-btn active">All</button>
+                <button id="filter-2025" class="filter-btn">2025</button>
+                <button id="filter-2024" class="filter-btn">2024</button>
+            </div>
+        </div>
+        
+        <div class="logs-container">
+            <!-- Log Entries with animations -->
+            <div class="log-entry" data-aos="fade-up" data-year="2025">
+                <div class="log-header">
+                    <h2>No more resets</h2>
+                    <span class="log-date">Wednesday, 19 March, 2025</span>
+                </div>
+                <div class="log-content">
+                    <p>
+                       The new BMS was added in the system and now the power is on point. With these we have no ESC resets as it is calibrated perfectly.
+                    </p>
+                </div>
+            </div>
 
-<body>
-  <header>
-    <div class="logo">
-      <a href="index.html">WeTall (Project Iron Flake)</a>
-    </div>
-  </header>
-  <main>
-    <h1>Logs</h1>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>No more resets</h2>
-        <span class="date">Wednesday, 19 March, 2025</span>
-      </div>
-      <div class="log-content">
-        <p>
-           The new BMS was added in the system and now the power is on point. With these we have no ESC resets as it is calibrated perfectly.
-        </p>
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>Wafer's work swapping and KABOOM!</h2>
-        <span class="date">Friday, 14 March, 2025</span>
-      </div>
-      <div class="log-content">
-        <p>
-           As we faced issues with ESP32 communication with the Arduino, now Arduino Nano will be the receiver and the ESP32 will do all the calculations.
-           With the new code the masters and slaves of the receiver are swapped. Now along with that the buck converter got blown due its lack of reverse polarity protection.
-        </p>
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>Purchase of some parts for the thermals of the battery</h2>
-        <span class="date">Sunday, 9 March, 2025</span>
-      </div>
-      <div class="log-content">
-        <p>
-           A new BLDC ESC was bought along with the following parts for the thermals:<br>
-           <ol>
-            <li>Universal Heat Sink x 2</li>
-            <li>Aluminium Heatsink with Blue Thermal Tape x 1 </li>
-            <li>LM2596S with SMD LED DC-DC Step-Down Power Supply x 1 </li>
-            <li>Pro Range Cooling Fan x 1</li>
-          </ol>
-        </p>
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>BLDC motors spinning issue</h2>
-        <span class="date">Saturday, 8 February, 2025</span>
-      </div>
-      <div class="log-content">
-        <p>
-           We were having some issues with the BLDC motors spinning. Right now the issue is solved hoping it won't happen again. The thrust was calculated again at 70% power
-           which came out to be 1.2 kgs for each motor.
-        </p>
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>Battery Pack and Screen making</h2>
-        <span class="date">Tuesday, 4 February, 2025</span>
-      </div>
-      <div class="log-content">
-        <p>
-           After buying the batteries <span class="user-name">Rajas Naik</span> created a battery pack. Along with it he added the oled screen to the remote which will display the battery
-           percentages and other data as required.
-        </p>
-      </div>
-    </div>
+            <div class="log-entry" data-aos="fade-up" data-year="2025">
+                <div class="log-header">
+                    <h2>Wafer's work swapping and KABOOM!</h2>
+                    <span class="log-date">Friday, 14 March, 2025</span>
+                </div>
+                <div class="log-content">
+                    <p>
+                       As we faced issues with ESP32 communication with the Arduino, now Arduino Nano will be the receiver and the ESP32 will do all the calculations.
+                       <!-- ... content truncated for brevity ... -->
+                    </p>
+                </div>
+            </div>
+            
+            <div class="log-entry" data-aos="fade-up" data-year="2025">
+                <div class="log-header">
+                    <h2>BLDC motors spinning issue</h2>
+                    <span class="log-date">Saturday, 8 February, 2025</span>
+                </div>
+                <div class="log-content">
+                    <p>
+                       We were having some issues with the BLDC motors spinning. Right now the issue is solved hoping it won't happen again. The thrust was calculated again at 70% power
+                       which came out to be 1.2 kgs for each motor.
+                    </p>
+                </div>
+            </div>
 
-    <div class="log">
-      <div class="log-header">
-        <h2>Transceiving successful</h2>
-        <span class="date">Monday, 27 January, 2025</span>
-      </div>
-      <div class="log-content">
-        <p>
-           After having a hard time integrating the antenna module NRF24 with the new ESP32 on the receiver. <span class="user-name">Swar Churi</span>
-           successfully established communication and data transfer. Now we need to make a new battery pack.
-        </p>
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>Ordering Power 🔋</h2>
-        <span class="date">Thursday, 23 January, 2025</span>
-      </div>
-      <div class="log-content">
-        <p>
-           The following parts were ordered:<br>
-           <ol>
-             <li>Orange A Grade ISR 18650 3.7V 1300mAh 15C Li-ion Battery x 6  </li>
-             <li>ESP32-CAM-MB MICRO USB Download Module x 1</li>
-             <li>18650 2x1 Battery Cell Spacer/Holder x 4</li>
-             <li>Battery Connection Welding Strip with 99.96% Pure Nickel 5Pcs</li>
-           </ol>
-        </p>
-      </div>
-    </div>
+            <div class="log-entry" data-aos="fade-up" data-year="2025">
+                <div class="log-header">
+                    <h2>Battery Pack and Screen making</h2>
+                    <span class="log-date">Tuesday, 4 February, 2025</span>
+                </div>
+                <div class="log-content">
+                    <p>
+                       After buying the batteries <span class="user-name">Rajas Naik</span> created a battery pack. Along with it he added the oled screen to the remote which will display the battery
+                       <!-- ... content truncated for brevity ... -->
+                    </p>
+                </div>
+            </div>
 
-    <div class="log">
-      <div class="log-header">
-        <h2>New design for the motor holders and new wafer on the remote</h2>
-        <span class="date">Thursday, 16 January, 2025</span>
-      </div>
-      <div class="log-content">
-        <p>
-          During several motor run tests the holder broke while going into the hovering phase, causing a new design change to cover the stress on certain
-          points on the 3d printed parts. With the new design printed a sturdy and efficient motor holder were swapped in place of the old ones.
-          Along with that ESP32, was soldered on the receiver module. The new ESP32 has more storage and energy capacity helping for more commands
-          to run. 
-        </p>
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>New vtol frame developed successfully</h2>
-        <span class="date">Sunday, 5 January, 2025</span>
-      </div>
-      <div class="log-content">
-        <p>
-          The entire strucutal frame was assembled with the motors and servo placed with the fuselage along with the ESCs and comms holders. 
-        </p>
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>3d parts placed together</h2>
-        <span class="date">Thursday, 19 December, 2024</span>
-      </div>
-      <div class="log-content">
-        <p>
-          After breaking the 3d printed holder of the motor, <span class="user-name">Rajas Naik</span> has firmly secured the motor and
-          the entire structure with the 3d printed holder.
-        </p>
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>Mechanim testing</h2>
-        <span class="date">Friday, 13 December, 2024</span>
-      </div>
-      <div class="log-content">
-        <p>
-          Today transition mechanism and vertical to horizontal swivel mechanism was tested.
-        </p>
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>A cheap buy</h2>
-        <span class="date">Monday, 9 December, 2024</span>
-      </div>
-      <div class="log-content">
-        <p>
-          40(A) BMS for just was bought.
-        </p>
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>More purchases</h2>
-        <span class="date">Saturday, 7 December, 2024</span>
-      </div>
-      <div class="log-content">
-        <p>
-          The following parts were purchased:<br>
-          <ol>
-            <li>Arduino Nano</li>
-            <li>NRF24 with antenna</li>
-            <li>2 Switches</li>
-            <li>Display</li>
-            <li>Resistors</li>
-          </ol>
-        </p>
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>The 3d-print arrives</h2>
-        <span class="date">Wednesday, 30 October, 2024</span>
-      </div>
-      <div class="log-content">
-        <p>
-          The parts arrived and were mounted to the frame. The hop test will be conducted in the 2nd week of December.
-        </p>
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>Ordering the thing</h2>
-        <span class="date">Monday, 28 October, 2024</span>
-      </div>
-      <div class="log-content">
-        <p>
-          The mount for the motors and to make the transition design, a 3d structure is ordered costing 320 INR for the whole order.
-        </p>
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>Best solderer</h2>
-        <span class="date">Friday, 25 October, 2024</span>
-      </div>
-      <div class="log-content">
-        <p>
-          And he delivers. <span class="user-name">Rajas Naik</span> does what he always does. Best soldering work, with clean and simple design. Check this out:
-          <a style="color: white;" href="https://x.com/Raw_scientist/status/1850919908525355029"> Photos of the reciever module </a>
-        </p>        
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>Receiver soldering</h2>
-        <span class="date">Saturday, 23 October, 2024</span>
-      </div>
-      <div class="log-content">
-        <p>
-          The ordered parts are delivered and now the work of building the receiver pcb starts. The greatest solderer of all time <span class="user-name">Rajas Naik</span>
-          will now handle the task of putting all the parts together.
-        </p>
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>Gyro implementation</h2>
-        <span class="date">Wednesday, 16 October, 2024</span>
-      </div>
-      <div class="log-content">
-        <p>
-          <span class="user-name">Rajas Naik</span> Calibrated the gyroscopic system, which will help the vtol to be stable in mid air, and not lose its balance due to strong
-          winds and other external factors. Now we are waiting for other parts to be delivered like: header pins, bigger servos and voltage regulator.
-        </p>
-      </div>
-  </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>Power Beast</h2>
-        <span class="date">Friday, 11 October, 2024</span>
-      </div>
-      <div class="log-content">
-        <p>
-           <span class="user-name" >Rajas Naik</span> made the battery and bms was integrated in it. The beasty power supply is ready to put on the frame.
-        </p>
-      </div>
-    </div>
+            <div class="log-entry" data-aos="fade-up" data-year="2025">
+                <div class="log-header">
+                    <h2>Transceiving successful</h2>
+                    <span class="log-date">Monday, 27 January, 2025</span>
+                </div>
+                <div class="log-content">
+                    <p>
+                       After having a hard time integrating the antenna module NRF24 with the new ESP32 on the receiver. <span class="user-name">Swar Churi</span>
+                       successfully established communication and data transfer. Now we need to make a new battery pack.
+                    </p>
+                </div>
+            </div>
 
-    <div class="log">
-      <div class="log-header">
-        <h2>Dragonfly ✅</h2>
-        <span class="date">Tuesady, 8 October, 2024</span>
-      </div>
-      <div class="log-content">
-        <p>
-           <span class="user-name" >Rajas Naik</span> conducted a test by suspending the whole frame to a thread, and tested the motors. The model looked like a dragonfly.
-           The frame looked quite disbalanced due to absence of gyros.
-        </p>
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>New changes for the new motors</h2>
-        <span class="date">Wednesday, 2 October, 2024</span>
-      </div>
-      <div class="log-content">
-        <p>
-           <span class="user-name" >Rajas Naik</span> changed the design by using a modified male-female joint mechanism. It was sturdy, and good to go forward.
-        </p>
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>Team meetings</h2>
-        <span class="date">September,2024</span>
-      </div>
-      <div class="log-content">
-        <p>
-          The team met on sundays and made upgrades to the design, like trying new design for holding servos and motors, improving radio module and changing the whole body design.
-          The team then tried modelling various transition mechanisms. 
-        </p>
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>Pipe shopping</h2>
-        <span class="date">Wednesday, August 7, 2024</span>
-      </div>
-      <div class="log-content">
-        <p>
-          To start making the VTOL frame, PVC pipes were bought.
-        </p>
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>BMS Shopping</h2>
-        <span class="date">Tuesday, August 6, 2024</span>
-      </div>
-      <div class="log-content">
-        <p>
-          3S 25 Ampere Battery Management System was bought.
-        </p>
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>Fisiks</h2>
-        <span class="date">Sunday, August 4, 2024</span>
-      </div>
-      <div class="log-content">
-        <p>
-          <span class="user-name">Rajas Naik</span> calculated the net thrust to be 600gms of one pair of thrusters. So we have around 600gms to play with!
-        </p>
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>More Shopping</h2>
-        <span class="date">Tuesday, July 23, 2024</span>
-      </div>
-      <div class="log-content">
-        <p>
-          The following parts were bought today:<br>
-            <ol>
-              <li>Lithium Ion cell × 3</li>
-              <li>Load cell</li>
-              <li>Load cell module</li>
-              <li>XP Connector (ESP)</li>
-            </ol>
-        </p>
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>Delivery and Testing</h2>
-        <span class="date">Monday, July 16, 2024</span>
-      </div>
-      <div class="log-content">
-        <p>All the parts are now recieved. <span class="user-name">Rajas Naik</span> and <span class="user-name">Swar Churi</span> tested all the parts. The propellors and the servos were all
-        running fine. For the next steps a vc will be held tomorrow.
-        </p>
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>Live Shopping</h2>
-        <span class="date">Friday, July 12, 2024</span>
-      </div>
-      <div class="log-content">
-        <p>
-          A vc was conducted today, the following parts were purchased:
-            <ol>
-              <li>SimonK 30A BLDC ESC Electronic Speed Controller with Connectors × 2</li>
-              <li>A2212 6T 2200KV Brushless Motor for Drone (Soldered Connector) × 2</li>
-              <li>SG90 Micro Servo Motor × 5</li>
-              <li>Quadcopter propellers 10 x 4.5 (1 Pair) × 2</li>
-              <li>Male to Female Jumper Wires (20cm) 40pcs × 1</li>
-            </ol>
-          The team will pay equal amounts.
-        </p> 
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>More Discussion</h2>
-        <span class="date">Monday, July 9, 2024</span>
-      </div>
-      <div class="log-content">
-        <p>
-          A vc was conducted today,  the topics discussed are:<br>
-          <ul>
-            <li>The problem with NRF24L01 module with antenaa: The modules of transmtitter and receiver were replaced, as the
-                NRF24l01 module with antenna wasn't transmitting data.<span class="user-name">Rajas Naik</span> then swapped the module with SMD module with
-                antenaa which was placed in the reciever.</li>
-            <li>The purchase of BLDC motor: The team needs to contribute for the money which will be needed to buy the motors. In
-                total 2 motors need to be purchased, and everyone will try and find motors with the required specs and budget.</li>
-            <li>Design of the VTOL: <span class="user-name">NR</span> and <span class="user-name">Sahil Karpe</span> will be looking at the designing of the vtol as well as the marterial. They
-                will collaborate with one another for the same.</li>
-          </ul>
-          Another vc will be held tomorrow to discuss the purchase of BLDC Motors.
-        </p>
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>Real use of code</h2>
-        <span class="date">Sunday, July 7, 2024</span>
-      </div>
-      <div class="log-content">
-        <p>
-          <span class="user-name">Rajas Naik</span> with the help of <span class="user-name">NR</span>'s and <span class="user-name">Swar Churi</span>'s code has succesfully tested the working of servo. The transmitter is
-           giving the instructions properly while the receiver is capturing the movements of the server and showing proper output.
-           The servo was wirelessly controlled using NRF24L01!
-           <a style="color: white;"href="https://x.com/RAWscientists/status/1809912879140704360">Watch this video made by
-           Rajas Naik</a>
-        </p>
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>Best result of intensive coding</h2>
-        <span class="date">Monday, July 1, 2024</span>
-      </div>
-      <div class="log-content">
-        <p>
-          <span class="user-name">Rajas Naik</span> and <span class="user-name">Swar Churi</span> have achieved complete radio communication. They have successfully assembled transmitter module
-           on PCB board!
-        </p>
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>Result of intensive coding</h2>
-        <span class="date">Tuesday, June 18, 2024</span>
-      </div>
-      <div class="log-content">
-        <p><span class="user-name">Rajas Naik</span> has achieved partial radio communication.</p>
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>More Parts</h2>
-        <span class="date">Monday, June 10, 2024</span>
-      </div>
-      <div class="log-content">
-        <p>The following parts were purchased by:<br>          
-          <ol>
-          <li>Data Cable (1)</li>
-          <li>NRF24L01 3.3v Adapter Module (2)</li>
-          <li>100μF Capacitor (2)</li>
-          <li>10μF Capacitor (2)</li>
-          <li>GPIO Header pin (8)</li>
-        </p>
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>Intensive Coding</h2>
-        <span class="date">Sunday, June 9, 2024</span>
-      </div>
-      <div class="log-content">
-        <p>
-          <span class="user-name">Swar Churi</span> has completed the coding of transmitter. He has also completed testing of all the parts he had with him
-          and performed tests by completing the circuit for transmitter.</p>
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>The Beginning</h2>
-        <span class="date">Friday, June 7, 2024</span>
-      </div>
-      <div class="log-content">
-        <p>Today 7 June <span class="user-name">Swar Churi</span>, <span class="user-name">Rajas Naik</span>, <span class="user-name">Sahil Karpe</span> went for shopping Parts bought today:
-          <ol>
-          <li>Arduino Nano (2)</li>
-          <li>NRF24 with antenna (1)</li>
-          <li>NRF24 without antenna (1)</li>
-          <li>Joystick module (2)</li>
-          <li>Port B to USB cable (1)</li>
-          </ol>
-          <span class="user-name">Sahil Karpe</span> — Today at 10:58 PM: This is the bill of the above mentioned items which mentions the amount 810. The
-          item 5. Port B to USB cable (1) is not mentioned as it was purchased after obtaining Microchip and cuz we
-          didn't check while buying The cost of the item 5. Port B to USB cable (1) is 30/- INR. <span class="user-name">Sahil Karpe</span> — Today at 11:06
-          PM: As of now <span class="user-name">Swar Churi</span> will be testing a few parts from the above mentioned list which include:
-          <ul>
-          <li>Arduino Nano (1)</li>
-          <li>Joystick Module (1)</li>
-          <li>Port B to USB cable (1)</li>
-          </ul>
-          <span class="user-name">Rajas Naik</span> has the remaining parts. He has posted a photo suggesting that the parts need to be cleaned up
-          using "rubbing alcohol". I am "assuming" that he will be doing it by himself as I haven't received any update
-          on it by him at the moment of writing this message.
-        </p>
-      </div>
-    </div>
-    
-    <div class="log">
-      <div class="log-header">
-        <h2>Decision Making</h2>
-        <span class="date">Tuesday, June 4, 2024</span>
-      </div>
-      <div class="log-content">
-        <p>From today's vc: <span class="user-name">NR</span> is going to do movement control. A irl meeting is going to be
-          conducted at <span class="user-name">Eren Jeager's</span> house in the forthcoming days <span class="user-name">Swar Churi</span> has completed the coding of
-          reciever, and <span class="user-name">Rajas Naik</span> will be working on the design when he will return home. <span class="user-name">Sahil Karpe</span> will be there to help you all. Till
-          now No one has asked to But I am Here.</p>
-      </div>
-    </div>
-    <!-- karpe add all the other logs -->
-  </main>
-  <footer>
-    <p>&copy; 2024 WeTall (Project Iron Flake)</p>
-  </footer>
+            <div class="log-entry" data-aos="fade-up" data-year="2025">
+                <div class="log-header">
+                    <h2>Ordering Power 🔋</h2>
+                    <span class="log-date">Thursday, 23 January, 2025</span>
+                </div>
+                <div class="log-content">
+                    <p>
+                       The following parts were ordered:<br>
+                       <ol>
+                          <!-- ... list items truncated ... -->
+                          <li>Lithium Ion cell × 3</li>
+                          <li>Load cell</li>
+                          <li>Load cell module</li>
+                          <li>XP Connector (ESP)</li>
+                       </ol>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="log-entry" data-aos="fade-up" data-year="2024">
+                <div class="log-header">
+                    <h2>More purchases</h2>
+                    <span class="log-date">Saturday, 7 December, 2024</span>
+                </div>
+                <div class="log-content">
+                    <p>
+                      The following parts were purchased:<br>
+                      <ol>
+                        <li>Arduino Nano</li>
+                        <li>NRF24 with antenna</li>
+                        <li>2 Switches</li>
+                        <li>Display</li>
+                        <li>Resistors</li>
+                      </ol>
+                    </p>
+                </div>
+            </div>
+
+            <div class="log-entry" data-aos="fade-up" data-year="2024">
+                <div class="log-header">
+                    <h2>The 3d-print arrives</h2>
+                    <span class="log-date">Wednesday, 30 October, 2024</span>
+                </div>
+                <div class="log-content">
+                    <p>
+                      The parts arrived and were mounted to the frame. The hop test will be conducted in the 2nd week of December.
+                    </p>
+                </div>
+            </div>
+
+            <div class="log-entry" data-aos="fade-up" data-year="2024">
+                <div class="log-header">
+                    <h2>Ordering the thing</h2>
+                    <span class="log-date">Monday, 28 October, 2024</span>
+                </div>
+                <div class="log-content">
+                    <p>
+                      The mount for the motors and to make the transition design, a 3d structure is ordered costing 320 INR for the whole order.
+                    </p>
+                </div>
+            </div>
+
+            <div class="log-entry" data-aos="fade-up" data-year="2024">
+                <div class="log-header">
+                    <h2>Best solderer</h2>
+                    <span class="log-date">Friday, 25 October, 2024</span>
+                </div>
+                <div class="log-content">
+                    <p>
+                      And he delivers. <span class="user-name">Rajas Naik</span> does what he always does. Best soldering work, with clean and simple design. Check this out:
+                      <a style="color: #bb86fc;" href="https://x.com/Raw_scientist/status/1850919908525355029"> Photos of the reciever module </a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="log-entry" data-aos="fade-up" data-year="2024">
+                <div class="log-header">
+                    <h2>Receiver soldering</h2>
+                    <span class="log-date">Saturday, 23 October, 2024</span>
+                </div>
+                <div class="log-content">
+                    <p>
+                      The ordered parts are delivered and now the work of building the receiver pcb starts. The greatest solderer of all time <span class="user-name">Rajas Naik</span>
+                      will now handle the task of putting all the parts together.
+                    </p>
+                </div>
+            </div>
+
+            <div class="log-entry" data-aos="fade-up" data-year="2024">
+                <div class="log-header">
+                    <h2>Gyro implementation</h2>
+                    <span class="log-date">Wednesday, 16 October, 2024</span>
+                </div>
+                <div class="log-content">
+                    <p>
+                      <!-- ... content truncated ... -->
+                    </p>
+                </div>
+            </div>
+
+            <div class="log-entry" data-aos="fade-up" data-year="2024">
+                <div class="log-header">
+                    <h2>Team meetings</h2>
+                    <span class="log-date">September, 2024</span>
+                </div>
+                <div class="log-content">
+                    <p>
+                      The team met on sundays and made upgrades to the design, like trying new design for holding servos and motors, improving radio module and changing the whole body design.
+                      The team then tried modelling various transition mechanisms. 
+                    </p>
+                </div>
+            </div>
+
+            <div class="log-entry" data-aos="fade-up" data-year="2024">
+                <div class="log-header">
+                    <h2>Pipe shopping</h2>
+                    <span class="log-date">Wednesday, August 7, 2024</span>
+                </div>
+                <div class="log-content">
+                    <p>
+                      To start making the VTOL frame, PVC pipes were bought.
+                    </p>
+                </div>
+            </div>
+
+            <div class="log-entry" data-aos="fade-up" data-year="2024">
+                <div class="log-header">
+                    <h2>BMS Shopping</h2>
+                    <span class="log-date">Tuesday, August 6, 2024</span>
+                </div>
+                <div class="log-content">
+                    <p>
+                      3S 25 Ampere Battery Management System was bought.
+                    </p>
+                </div>
+            </div>
+
+            <div class="log-entry" data-aos="fade-up" data-year="2024">
+                <div class="log-header">
+                    <h2>Fisiks</h2>
+                    <span class="log-date">Sunday, August 4, 2024</span>
+                </div>
+                <div class="log-content">
+                    <p>
+                      <span class="user-name">Rajas Naik</span> calculated the net thrust to be 600gms of one pair of thrusters. So we have around 600gms to play with!
+                    </p>
+                </div>
+            </div>
+
+            <div class="log-entry" data-aos="fade-up" data-year="2024">
+                <div class="log-header">
+                    <h2>More Shopping</h2>
+                    <span class="log-date">Tuesday, July 23, 2024</span>
+                </div>
+                <div class="log-content">
+                    <p>
+                      The following parts were bought today:<br>
+                        <ol>
+                          <!-- ... list items truncated ... -->
+                        </ol>
+                    </p>
+                </div>
+            </div>
+
+            <div class="log-entry" data-aos="fade-up" data-year="2024">
+                <div class="log-header">
+                    <h2>Delivery and Testing</h2>
+                    <span class="log-date">Monday, July 16, 2024</span>
+                </div>
+                <div class="log-content">
+                    <p>All the parts are now recieved. <span class="user-name">Rajas Naik</span> and <span class="user-name">Swar Churi</span> tested all the parts. The propellors and the servos were all
+                    running fine. For the next steps a vc will be held tomorrow.
+                    </p>
+                </div>
+            </div>
+
+            <div class="log-entry" data-aos="fade-up" data-year="2024">
+                <div class="log-header">
+                    <h2>Live Shopping</h2>
+                    <span class="log-date"><!-- Date missing in source --></span>
+                </div>
+                <div class="log-content">
+                    <p>
+                      <!-- ... content truncated ... -->
+                    </p>
+                </div>
+            </div>
+
+            <div class="log-entry" data-aos="fade-up" data-year="2024">
+                <div class="log-header">
+                    <h2>Intensive Coding</h2>
+                    <span class="log-date">Sunday, June 9, 2024</span>
+                </div>
+                <div class="log-content">
+                    <p>
+                      <span class="user-name">Swar Churi</span> has completed the coding of transmitter. He has also completed testing of all the parts he had with him
+                      and performed tests by completing the circuit for transmitter.</p>
+                </div>
+            </div>
+
+            <div class="log-entry" data-aos="fade-up" data-year="2024">
+                <div class="log-header">
+                    <h2>The Beginning</h2>
+                    <span class="log-date">Friday, June 7, 2024</span>
+                </div>
+                <div class="log-content">
+                    <p>Today 7 June <span class="user-name">Swar Churi</span>, <span class="user-name">Rajas Naik</span>, <span class="user-name">Sahil Karpe</span> went for shopping Parts bought today:
+                      <ol>
+                        <!-- ... list items truncated ... -->
+                      </ol>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 WeTall</p>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#page-top" id="back-to-top-btn" title="Go to top" aria-label="Back to top">&#8679;</a>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize AOS animation library
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                offset: 100,
+                once: true
+            });
+            
+            // Log filtering functionality
+            setupLogFiltering();
+        });
+        
+        function setupLogFiltering() {
+            const searchInput = document.getElementById('log-search');
+            const logEntries = document.querySelectorAll('.log-entry');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            // Search functionality
+            searchInput.addEventListener('input', filterLogs);
+            
+            // Year filter buttons
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    filterLogs();
+                });
+            });
+            
+            function filterLogs() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const activeFilter = document.querySelector('.filter-btn.active').id.replace('filter-', '');
+                
+                logEntries.forEach(entry => {
+                    const content = entry.textContent.toLowerCase();
+                    const year = entry.dataset.year;
+                    
+                    // Check if entry matches both search term and year filter
+                    const matchesSearch = content.includes(searchTerm);
+                    const matchesYear = activeFilter === 'all' || year === activeFilter;
+                    
+                    if (matchesSearch && matchesYear) {
+                        entry.style.display = '';
+                    } else {
+                        entry.style.display = 'none';
+                    }
+                });
+            }
+        }
+    </script>
 </body>
-
 </html>

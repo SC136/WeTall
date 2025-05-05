@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - WeTall VTOL Bicopter</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Photo gallery of the WeTall VTOL Bicopter project showcasing its development and design">
+    <meta name="keywords" content="VTOL, bicopter, drone, gallery, photos, engineering">
+    <meta name="author" content="WeTall Team">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Gallery - WeTall VTOL Bicopter">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Photo gallery of the WeTall VTOL Bicopter project">
+    <meta property="og:image" content="https://i.imgur.com/ewZxY0z.jpg">
+    <meta property="og:url" content="https://sc.is-a.dev/WeTall/gallery.html">
+    <meta name="theme-color" content="#1a1a1a">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="Assets/vtol.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Animation library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Masonry & imagesLoaded CDN -->
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+</head>
+<body id="page-top" class="gallery-page">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header>
+        <h1>Gallery</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" aria-label="Home">Home</a></li>
+                <li><a href="team.html" aria-label="Team">Team</a></li>
+                <li><a href="logs.html" aria-label="Logs">Logs</a></li>
+                <li><a href="gallery.html" aria-label="Gallery" class="active">Gallery</a></li>
+                <li><a href="https://github.com/SC136/WeTall" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i> GitHub
+                </a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main id="main-content">
+        <div class="gallery-container" role="region" aria-label="Project Gallery">
+            <!-- Gallery items with improved accessibility and animation -->
+            <div class="gallery-item" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100" data-aos-offset="0">
+                <img src="https://i.imgur.com/ewZxY0z.jpg" alt="VTOL design overview" 
+                     onclick="openModal(this.src)" tabindex="0" 
+                     onkeypress="if(event.key==='Enter') openModal(this.src)">
+            </div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-duration="600" data-aos-delay="150" data-aos-offset="0">
+                <img src="https://i.imgur.com/LTjFZEg.png" alt="Gallery Image 2" 
+                     onclick="openModal(this.src)" tabindex="0" 
+                     onkeypress="if(event.key==='Enter') openModal(this.src)">
+            </div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200" data-aos-offset="0">
+                <img src="https://i.imgur.com/8EA1OCB.png" alt="Gallery Image 3" 
+                     onclick="openModal(this.src)" tabindex="0" 
+                     onkeypress="if(event.key==='Enter') openModal(this.src)">
+            </div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-duration="600" data-aos-delay="250" data-aos-offset="0">
+                <img src="https://i.imgur.com/u11HjK7.png" alt="Gallery Image 4" 
+                     onclick="openModal(this.src)" tabindex="0" 
+                     onkeypress="if(event.key==='Enter') openModal(this.src)">
+            </div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300" data-aos-offset="0">
+                <img src="https://i.imgur.com/nh90uR9.jpeg" alt="Gallery Image 5" 
+                     onclick="openModal(this.src)" tabindex="0" 
+                     onkeypress="if(event.key==='Enter') openModal(this.src)">
+            </div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-duration="600" data-aos-delay="350" data-aos-offset="0">
+                <img src="https://i.imgur.com/j4ytFGS.jpeg" alt="Gallery Image 6" 
+                     onclick="openModal(this.src)" tabindex="0" 
+                     onkeypress="if(event.key==='Enter') openModal(this.src)">
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.imgur.com/GNoUhbZ.png" alt="Gallery Image 7" 
+                     onclick="openModal(this.src)" tabindex="0" 
+                     onkeypress="if(event.key==='Enter') openModal(this.src)">
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.imgur.com/YOXTKkN.png" alt="Gallery Image 8" 
+                     onclick="openModal(this.src)" tabindex="0" 
+                     onkeypress="if(event.key==='Enter') openModal(this.src)">
+            </div>
+            <div class="gallery-item">
+                <img src="https://imgur.com/ylfd5oD.png" alt="Gallery Image 9" 
+                     onclick="openModal(this.src)" tabindex="0" 
+                     onkeypress="if(event.key==='Enter') openModal(this.src)">
+            </div>
+            <div class="gallery-item">
+                <img src="https://imgur.com/tPvD44n.png" alt="Gallery Image 10" 
+                     onclick="openModal(this.src)" tabindex="0" 
+                     onkeypress="if(event.key==='Enter') openModal(this.src)">
+            </div>
+            <div class="gallery-item">
+                <img src="https://imgur.com/FejlC4e.png" alt="Gallery Image 11" 
+                     onclick="openModal(this.src)" tabindex="0" 
+                     onkeypress="if(event.key==='Enter') openModal(this.src)">
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 WeTall</p>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#page-top" id="back-to-top-btn" title="Go to top" aria-label="Back to top">&#8679;</a>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize AOS animation library
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 600,
+                once: true,
+                offset: 0,  // No offset - show immediately when in viewport
+                disable: 'mobile' // Disable on mobile for better performance
+            });
+            
+            // Force update AOS after Masonry initializes
+            var galleryContainer = document.querySelector('.gallery-container');
+            if (galleryContainer) {
+                imagesLoaded(galleryContainer, function() {
+                    // Initialize Masonry
+                    var msnry = new Masonry(galleryContainer, {
+                        itemSelector: '.gallery-item',
+                        columnWidth: '.gallery-item',
+                        percentPosition: true,
+                        gutter: 14,
+                        horizontalOrder: true,
+                        fitWidth: true
+                    });
+                    
+                    // Refresh AOS to recalculate positions after Masonry layout
+                    setTimeout(function() {
+                        AOS.refresh();
+                    }, 500);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
