@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Logs - WeTall VTOL Bicopter</title>
+    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Development Logs - Project IronFlake by WeTall</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Detailed development logs of the WeTall VTOL Bicopter project">
-    <meta name="keywords" content="VTOL, bicopter, drone, project logs, development">
+    <meta name="description" content="Complete development journey of Project IronFlake - from initial concept to flight testing. Follow our detailed logs covering PID tuning, flight control systems, and engineering challenges.">
+    <meta name="keywords" content="VTOL, bicopter, drone, project logs, development, IronFlake, flight testing, PID control">
     <meta name="author" content="WeTall Team">
     
     <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="Project Logs - WeTall VTOL Bicopter">
+    <meta property="og:title" content="Development Logs - Project IronFlake by WeTall">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Detailed development logs of the WeTall VTOL Bicopter project">
-    <meta property="og:image" content="https://i.makeagif.com/media/12-07-2015/ZPiIUS.gif">
-    <meta property="og:url" content="https://sc.is-a.dev/WeTall/logs.html">
+    <meta property="og:description" content="Complete development journey of Project IronFlake - from initial concept to flight testing. Follow our detailed logs covering PID tuning, flight control systems, and engineering challenges.">
+    <meta property="og:image" content="https://ironflake.is-local.org/Assets/model-poster.png">
+    <meta property="og:url" content="https://ironflake.is-local.org/logs.html">
     <meta name="theme-color" content="#1a1a1a">
-    
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="Assets/vtol.png" type="image/x-icon">
+      <!-- Favicon -->
+    <link rel="shortcut icon" href="Assets/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     
     <!-- Font Awesome for social icons -->
@@ -30,7 +28,6 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body id="page-top">
-    <a href="#main-content" class="skip-link">Skip to main content</a>
     
     <header>
         <h1>Project Logs</h1>
@@ -59,9 +56,71 @@
                 <button id="filter-2024" class="filter-btn">2024</button>
             </div>
         </div>
-        
-        <div class="logs-container">
+          <div class="logs-container">
             <!-- Log Entries with animations -->
+            <div class="log-entry" data-aos="fade-up" data-year="2025">
+                <div class="log-header">
+                    <h2>Flight Visualizer and Heavy Coding</h2>
+                    <span class="log-date">Tuesday, 27 May, 2025</span>
+                </div>
+                <div class="log-content">
+                    <p>
+                       We have been coding a lot of changes in the flight control, including new PID control code and security measures for in-flight risks. With new code to be tested, we decided to use the date from the receiver and visualize it using ground control station (GCS) system in simpler terms 3d model environment, before testing it in real life.
+                    </p>
+                </div>
+            </div>
+
+            <div class="log-entry" data-aos="fade-up" data-year="2025">
+                <div class="log-header">
+                    <h2>New website design</h2>
+                    <span class="log-date">Tuesday, 06 May, 2025</span>
+                </div>
+                <div class="log-content">
+                    <p>
+                       <span class="user-name">Swar</span> proposed a new website design, with an interactive model of Ironflake as the main attraction. With some great visuals for photo gallery and log updates. The new website will be more minimal, and COOL. We will surely update when the website goes live.
+                    </p>
+                    <p>Check out some sample images of new website design!!</p>
+                </div>
+            </div>
+
+            <div class="log-entry" data-aos="fade-up" data-year="2025">
+                <div class="log-header">
+                    <h2>Rolling oscillations 😳</h2>
+                    <span class="log-date">Tuesday, 29 April, 2025</span>
+                </div>
+                <div class="log-content">
+                    <p>
+                       After testing the flight on 26th, <span class="user-name">Rajas</span> started testing the PID with roll stabilization as the first priority. Mounted on the testing stand, with 10 percent throttle, the ironflake started oscillating, and the PID control system, wasn't working out. With gains and factors tested out, we decided to work on the code again, so that we can stop oscilations.
+                    </p>
+                    <p>Video of Flight Testing</p>
+                </div>
+            </div>
+
+            <div class="log-entry" data-aos="fade-up" data-year="2025">
+                <div class="log-header">
+                    <h2>IRL meeting and some work on joystick and flight module</h2>
+                    <span class="log-date">Saturday, 26 April, 2025</span>
+                </div>
+                <div class="log-content">
+                    <p>
+                       We started working on the PID control system and DMP in the MPU for controlling and stablizing our flight. Also we tweaked our joysticks that suited our use-case. Along with that we tried tested the Proportional factoring code in real life, by throttling the vtol at medium levels.
+                    </p>
+                    <p>After facing some difficulties in the setup, we will have to do work on PID as it is still in ground 0 level.</p>
+                </div>
+            </div>
+
+            <div class="log-entry" data-aos="fade-up" data-year="2025">
+                <div class="log-header">
+                    <h2>Starting flight testing</h2>
+                    <span class="log-date">Saturday, 19 April, 2025</span>
+                </div>
+                <div class="log-content">
+                    <p>
+                       After a long break, we have started making the flight testing setup. A new frame for holding the body as we throttle it up. With new BMS and ESCs we start our journey in flight testing.
+                    </p>
+                </div>
+            </div>
+
             <div class="log-entry" data-aos="fade-up" data-year="2025">
                 <div class="log-header">
                     <h2>No more resets</h2>
@@ -107,7 +166,7 @@
                 </div>
                 <div class="log-content">
                     <p>
-                       After buying the batteries <span class="user-name">Rajas Naik</span> created a battery pack. Along with it he added the oled screen to the remote which will display the battery
+                       After buying the batteries <span class="user-name">Rajas</span> created a battery pack. Along with it he added the oled screen to the remote which will display the battery
                        <!-- ... content truncated for brevity ... -->
                     </p>
                 </div>
@@ -120,7 +179,7 @@
                 </div>
                 <div class="log-content">
                     <p>
-                       After having a hard time integrating the antenna module NRF24 with the new ESP32 on the receiver. <span class="user-name">Swar Churi</span>
+                       After having a hard time integrating the antenna module NRF24 with the new ESP32 on the receiver. <span class="user-name">Swar</span>
                        successfully established communication and data transfer. Now we need to make a new battery pack.
                     </p>
                 </div>
@@ -195,7 +254,7 @@
                 </div>
                 <div class="log-content">
                     <p>
-                      And he delivers. <span class="user-name">Rajas Naik</span> does what he always does. Best soldering work, with clean and simple design. Check this out:
+                      And he delivers. <span class="user-name">Rajas</span> does what he always does. Best soldering work, with clean and simple design. Check this out:
                       <a style="color: #bb86fc;" href="https://x.com/Raw_scientist/status/1850919908525355029"> Photos of the reciever module </a>
                     </p>
                 </div>
@@ -208,7 +267,7 @@
                 </div>
                 <div class="log-content">
                     <p>
-                      The ordered parts are delivered and now the work of building the receiver pcb starts. The greatest solderer of all time <span class="user-name">Rajas Naik</span>
+                      The ordered parts are delivered and now the work of building the receiver pcb starts. The greatest solderer of all time <span class="user-name">Rajas</span>
                       will now handle the task of putting all the parts together.
                     </p>
                 </div>
@@ -270,7 +329,7 @@
                 </div>
                 <div class="log-content">
                     <p>
-                      <span class="user-name">Rajas Naik</span> calculated the net thrust to be 600gms of one pair of thrusters. So we have around 600gms to play with!
+                      <span class="user-name">Rajas</span> calculated the net thrust to be 600gms of one pair of thrusters. So we have around 600gms to play with!
                     </p>
                 </div>
             </div>
@@ -296,7 +355,7 @@
                     <span class="log-date">Monday, July 16, 2024</span>
                 </div>
                 <div class="log-content">
-                    <p>All the parts are now recieved. <span class="user-name">Rajas Naik</span> and <span class="user-name">Swar Churi</span> tested all the parts. The propellors and the servos were all
+                    <p>All the parts are now recieved. <span class="user-name">Rajas</span> and <span class="user-name">Swar</span> tested all the parts. The propellors and the servos were all
                     running fine. For the next steps a vc will be held tomorrow.
                     </p>
                 </div>
@@ -321,29 +380,46 @@
                 </div>
                 <div class="log-content">
                     <p>
-                      <span class="user-name">Swar Churi</span> has completed the coding of transmitter. He has also completed testing of all the parts he had with him
+                      <span class="user-name">Swar</span> has completed the coding of transmitter. He has also completed testing of all the parts he had with him
                       and performed tests by completing the circuit for transmitter.</p>
                 </div>
-            </div>
-
-            <div class="log-entry" data-aos="fade-up" data-year="2024">
+            </div>            <div class="log-entry" data-aos="fade-up" data-year="2024">
                 <div class="log-header">
                     <h2>The Beginning</h2>
                     <span class="log-date">Friday, June 7, 2024</span>
                 </div>
                 <div class="log-content">
-                    <p>Today 7 June <span class="user-name">Swar Churi</span>, <span class="user-name">Rajas Naik</span>, <span class="user-name">Sahil Karpe</span> went for shopping Parts bought today:
-                      <ol>
-                        <!-- ... list items truncated ... -->
-                      </ol>
-                    </p>
+                    <p>Today 7 June <span class="user-name">Swar</span>, <span class="user-name">Rajas</span>, <span class="user-name">Sahil</span> went for shopping Parts bought today:</p>
+                    <ol>
+                        <li>Arduino Nano (2)</li>
+                        <li>NRF24 with antenna (1)</li>
+                        <li>NRF24 without antenna (1)</li>
+                        <li>Joystick module (2)</li>
+                        <li>Port B to USB cable (1)</li>
+                    </ol>
+                    <p><span class="user-name">Sahil</span> — Today at 10:58 PM: This is the bill of the above mentioned items which mentions the amount 810. The item 5. Port B to USB cable (1) is not mentioned as it was purchased after obtaining Microchip and cuz we didn't check while buying The cost of the item 5. Port B to USB cable (1) is 30/- INR.</p>
+                    <p><span class="user-name">Sahil</span> — Today at 11:06 PM: As of now <span class="user-name">Swar</span> will be testing a few parts from the above mentioned list which include:</p>
+                    <ul>
+                        <li>Arduino Nano (1)</li>
+                        <li>Joystick Module (1)</li>
+                        <li>Port B to USB cable (1)</li>
+                    </ul>
+                    <p><span class="user-name">Rajas</span> has the remaining parts. He has posted a photo suggesting that the parts need to be cleaned up using "rubbing alcohol". I am "assuming" that he will be doing it by himself as I haven't received any update on it by him at the moment of writing this message.</p>
+                </div>
+            </div>
+
+            <div class="log-entry" data-aos="fade-up" data-year="2024">
+                <div class="log-header">
+                    <h2>Decision Making</h2>
+                    <span class="log-date">Tuesday, June 4, 2024</span>
+                </div>
+                <div class="log-content">
+                    <p>From today's vc: NR is going to do movement control. A irl meeting is going to be conducted at Eren Jeager's house in the forthcoming days <span class="user-name">Swar</span> has completed the coding of reciever, and <span class="user-name">Rajas</span> will be working on the design when he will return home. <span class="user-name">Sahil</span> will be there to help you all. Till now No one has asked to But I am Here.</p>
                 </div>
             </div>
         </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 WeTall</p>
+    </main>    <footer>
+        <p>&copy; 2025 WeTall (Project IronFlake)</p>
     </footer>
 
     <!-- Back to Top Button -->
