@@ -1,6 +1,23 @@
 # Gallery Images
 
-This directory contains images for the gallery page. Due to environment restrictions during automated setup, the images need to be manually downloaded from the following URLs:
+This directory contains images for the gallery page. 
+
+## Quick Start
+
+To populate this folder with the gallery images, run the download script:
+
+```bash
+cd Assets/images
+./download_images.sh
+```
+
+Or download the images manually from the URLs listed below.
+
+**Important:** The gallery.html file has been updated to reference these local image paths. Once the images are downloaded to this folder, the gallery page will display them properly.
+
+## Image Sources
+
+Due to environment restrictions during automated setup, the images need to be manually downloaded from the following URLs:
 
 ## Images to Download:
 
