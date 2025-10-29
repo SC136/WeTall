@@ -17,7 +17,7 @@ Or download the images manually from the URLs listed below.
 
 ## Image Sources
 
-Due to environment restrictions during automated setup, the images need to be manually downloaded from the following URLs:
+The following images need to be downloaded:
 
 ## Images to Download:
 
