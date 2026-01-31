@@ -400,6 +400,15 @@ main {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Optimize hidden log entries for better performance */
+.log-entry[style*="display: none"] {
+    visibility: hidden;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
 .log-entry:hover {
     transform: translateY(-3px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
