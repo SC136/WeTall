@@ -1423,17 +1423,27 @@ footer p {
     }
     
     #back-to-top-btn {
-        bottom: 20px;
-        right: 20px;
-        padding: 8px 12px;
-        font-size: 16px;
+        bottom: 14px;
+        right: 12px;
+        width: 42px;
+        height: 42px;
+        padding: 0;
+        border-radius: 10px;
+        font-size: 14px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .index-page .button-container {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(6, minmax(0, 1fr));
         width: 94vw;
         gap: 7px;
         margin-bottom: 10px;
+    }
+
+    .index-page .button-container .nav-button {
+        grid-column: span 2;
     }
 
     .index-page .button-container .contact-btn {
@@ -1505,8 +1515,31 @@ footer p {
         padding: 14px 12px;
     }
 
+    .index-page footer {
+        padding-top: 12px;
+        padding-bottom: 16px;
+    }
+
     footer p {
         margin-bottom: 6px;
+    }
+
+    .index-page footer a {
+        margin: 4px 6px;
+    }
+
+    .index-page .footer-email {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        line-height: 1.25;
+        font-size: 0.95rem;
+    }
+
+    .index-page .footer-github {
+        display: block;
+        margin-top: 2px;
+        font-size: 1.05rem;
     }
 
     /* Phone flow: title -> intro -> model -> quick actions -> stats -> footer */
@@ -1559,6 +1592,14 @@ footer p {
     .index-page model-viewer {
         width: 92vw;
         height: 300px;
+    }
+
+    .index-page .button-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .index-page .button-container .nav-button {
+        grid-column: auto;
     }
 
     .index-page .nav-button,
