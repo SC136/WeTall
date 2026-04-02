@@ -15,19 +15,16 @@
     <meta property="og:description" content="Complete development journey of Project IronFlake - from initial concept to flight testing. Follow our detailed logs covering PID tuning, flight control systems, and engineering challenges.">
     <meta property="og:image" content="https://ironflake.is-local.org/Assets/model-poster.png">
     <meta property="og:url" content="https://ironflake.is-local.org/logs.html">
-    <meta name="theme-color" content="#1a1a1a">
       <!-- Favicon -->
     <link rel="shortcut icon" href="Assets/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Logic/css/style.css">
     
     <!-- Font Awesome for social icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <!-- Animation library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
-<body id="page-top">
+<body id="page-top" class="logs-page">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     
     <header>
         <h1>Project Logs</h1>
@@ -59,7 +56,7 @@
         </div>
           <div class="logs-container">
             <!-- Log Entries with animations -->
-            <div class="log-entry" data-aos="fade-up" data-year="2026">
+            <div class="log-entry" data-year="2026">
                 <div class="log-header">
                     <h2>No noise 🤫</h2>
                     <span class="log-date">Monday, 2 March 2026</span>
@@ -70,12 +67,12 @@
                         subsequent debugging, replaced the noisy MPU6050 IMU with an MPU9250. A side-by-side video comparison posted today 
                         clearly proves the upgrade: the drone is completely stationary in both clips, but the new sensor now delivers perfectly 
                         clean, zero-noise data.
-                        <br><a style="color: #bb86fc;" href="https://x.com/Rajas_Naik06/status/2028490597443760487">Noice noise reduction</a>
+                        <br><a class="log-link" href="https://x.com/Rajas_Naik06/status/2028490597443760487">Noice noise reduction</a>
                     </p>
                 </div>
             </div>
             
-            <div class="log-entry" data-aos="fade-up" data-year="2026">
+            <div class="log-entry" data-year="2026">
                 <div class="log-header">
                     <h2>New design materials acquired</h2>
                     <span class="log-date">Thursday, 26 February 2026</span>
@@ -88,7 +85,7 @@
                 </div>
             </div>
             
-            <div class="log-entry" data-aos="fade-up" data-year="2026">
+            <div class="log-entry" data-year="2026">
                 <div class="log-header">
                     <h2>New cycle</h2>
                     <span class="log-date">Sunday, 22 February 2026</span>
@@ -102,7 +99,7 @@
                 </div>
             </div>
             
-            <div class="log-entry" data-aos="fade-up" data-year="2026">
+            <div class="log-entry" data-year="2026">
                 <div class="log-header">
                     <h2>New flight testing</h2>
                     <span class="log-date">Saturday, 31 January 2026</span>
@@ -110,12 +107,12 @@
                 <div class="log-content">
                     <p>
                         We are now researching for new sensors that need to be added to aid pitch axis PID like altitude and optical sensors. We are still fine-tuning our other axes so that we get perfect our PID till we get the new sensors. We also need to try balancing the weight and dampen or fix the vibrations in the aluminium wing frame caused because of the motors.
-                        <br><a style="color: #bb86fc;" href="https://x.com/Rajas_Naik06/status/2016892360115048887">Baby flights</a>
+                        <br><a class="log-link" href="https://x.com/Rajas_Naik06/status/2016892360115048887">Baby flights</a>
                     </p>
                 </div>
             </div>
             
-            <div class="log-entry" data-aos="fade-up" data-year="2026">
+            <div class="log-entry" data-year="2026">
                 <div class="log-header">
                     <h2>LiPo batteries + PID tuning </h2>
                     <span class="log-date">Sunday, 25 January 2026</span>
@@ -123,12 +120,12 @@
                 <div class="log-content">
                     <p>
                         With our new batteries in place and our PID looking all good, we tested our vtol and for the first time we saw our vtol hoping not once twice. With great results we are not looking for a full flight testing but with pitch axis yet to be tuned, we also need to check for the full power thrust measurements and the entire system checks.
-                        <br><a style="color: #bb86fc;" href="https://x.com/Rajas_Naik06/status/2015488807374917817">Check out our vtol hop video</a>
+                        <br><a class="log-link" href="https://x.com/Rajas_Naik06/status/2015488807374917817">Check out our vtol hop video</a>
                     </p>
                 </div>
             </div>
             
-            <div class="log-entry" data-aos="fade-up" data-year="2026">
+            <div class="log-entry" data-year="2026">
                 <div class="log-header">
                     <h2>Power delivery</h2>
                     <span class="log-date">Friday, 23 January 2026</span>
@@ -140,7 +137,7 @@
                 </div>
             </div>
             
-            <div class="log-entry" data-aos="fade-up" data-year="2026">
+            <div class="log-entry" data-year="2026">
                 <div class="log-header">
                     <h2>Hunting for power</h2>
                     <span class="log-date">Monday, 19 January 2026</span>
@@ -152,7 +149,7 @@
                 </div>
             </div>
             
-            <div class="log-entry" data-aos="fade-up" data-year="2026">
+            <div class="log-entry" data-year="2026">
                 <div class="log-header">
                     <h2>Working over the new year</h2>
                     <span class="log-date">Thursday, 1 January 2026</span>
@@ -164,7 +161,7 @@
                 </div>
             </div>
             
-            <div class="log-entry" data-aos="fade-up" data-year="2025">
+            <div class="log-entry" data-year="2025">
                 <div class="log-header">
                     <h2>Hopes for a bright new year</h2>
                     <span class="log-date">Wednesday, 31 December 2025</span>
@@ -176,7 +173,7 @@
                 </div>
             </div>
             
-            <div class="log-entry" data-aos="fade-up" data-year="2025">
+            <div class="log-entry" data-year="2025">
                 <div class="log-header">
                     <h2>Pivot to Tricopter?</h2>
                     <span class="log-date">Tuesday, 9 December 2025</span>
@@ -188,7 +185,7 @@
                 </div>
             </div>
             
-            <div class="log-entry" data-aos="fade-up" data-year="2025">
+            <div class="log-entry" data-year="2025">
                 <div class="log-header">
                     <h2>Waiting Game and upgrading our PID</h2>
                     <span class="log-date">Monday, 17 November 2025</span>
@@ -200,7 +197,7 @@
                 </div>
             </div>
             
-            <div class="log-entry" data-aos="fade-up" data-year="2025">
+            <div class="log-entry" data-year="2025">
                 <div class="log-header">
                     <h2>Start sending mails</h2>
                     <span class="log-date">Sunday, 16 November 2025</span>
@@ -212,7 +209,7 @@
                 </div>
             </div>
             
-            <div class="log-entry" data-aos="fade-up" data-year="2025">
+            <div class="log-entry" data-year="2025">
                 <div class="log-header">
                     <h2>Document our work</h2>
                     <span class="log-date">Tuesday, 11 November 2025</span>
@@ -224,7 +221,7 @@
                 </div>
             </div>
             
-            <div class="log-entry" data-aos="fade-up" data-year="2025">
+            <div class="log-entry" data-year="2025">
                 <div class="log-header">
                     <h2>Fix up some code</h2>
                     <span class="log-date">Tuesday, 4 November 2025</span>
@@ -236,7 +233,7 @@
                 </div>
             </div>
             
-            <div class="log-entry" data-aos="fade-up" data-year="2025">
+            <div class="log-entry" data-year="2025">
                 <div class="log-header">
                     <h2>Enhanced VTOL Stability with Cascaded PID</h2>
                     <span class="log-date">Sunday, 19 October, 2025</span>
@@ -246,12 +243,12 @@
                         Recent VTOL drone tests show 12-second indoor hovers with improved stability, thanks to a new cascaded PID controller. 
                         Upgraded brushless motors and propellers, combined with web-based PID tuning, have resolved earlier flight issues. 
                         The control system now separates angle and rate management, reducing oscillations.
-                        <br><a style="color: #bb86fc;" href="https://x.com/Rajas_Naik06/status/1979820774107263188">Check out the test video</a>
+                        <br><a class="log-link" href="https://x.com/Rajas_Naik06/status/1979820774107263188">Check out the test video</a>
                    </p>
                 </div>
             </div>
             
-            <div class="log-entry" data-aos="fade-up" data-year="2025">
+            <div class="log-entry" data-year="2025">
                 <div class="log-header">
                     <h2>Iterative Repairs and Upgrades</h2>
                     <span class="log-date">Wednesday, 17 September, 2025</span>
@@ -263,7 +260,7 @@
                 </div>
             </div>
             
-            <div class="log-entry" data-aos="fade-up" data-year="2025">
+            <div class="log-entry" data-year="2025">
                 <div class="log-header">
                     <h2>Connector Milestone: Finalizing Tilt-Rotor Wiring</h2>
                     <span class="log-date">Saturday, 6 September, 2025</span>
@@ -278,7 +275,7 @@
                 </div>
             </div>
             
-            <div class="log-entry" data-aos="fade-up" data-year="2025">
+            <div class="log-entry" data-year="2025">
                 <div class="log-header">
                     <h2>Buying new motors</h2>
                     <span class="log-date">Sunday, 17 August, 2025</span>
@@ -292,7 +289,7 @@
                 </div>
             </div>
             
-            <div class="log-entry" data-aos="fade-up" data-year="2025">
+            <div class="log-entry" data-year="2025">
                 <div class="log-header">
                     <h2>Back to work</h2>
                     <span class="log-date">Friday, 15 August, 2025</span>
@@ -305,7 +302,7 @@
                 </div>
             </div>
             
-            <div class="log-entry" data-aos="fade-up" data-year="2025">
+            <div class="log-entry" data-year="2025">
                 <div class="log-header">
                     <h2>New design assmebled and ready to test!</h2>
                     <span class="log-date">Friday, 4 July, 2025</span>
@@ -314,12 +311,12 @@
                     <p>
                         The 3d printed structure is delivered and assembled. The new holder is sleek, strong, and durable! The mainframe is ready
                         for testing on the next Sunday.
-                        <br><a style="color: #bb86fc;" href="https://x.com/Rajas_Naik06/status/1941165442602872893">Check out the main frame of our VTOL design</a>
+                        <br><a class="log-link" href="https://x.com/Rajas_Naik06/status/1941165442602872893">Check out the main frame of our VTOL design</a>
                     </p>
                 </div>
             </div>
             
-            <div class="log-entry" data-aos="fade-up" data-year="2025">
+            <div class="log-entry" data-year="2025">
                 <div class="log-header">
                     <h2>New design for the motor support</h2>
                     <span class="log-date">Monday, 23 June, 2025</span>
@@ -328,12 +325,12 @@
                     <p>
                         We have been trying to find a more suitable and strong design for the motor holder as our old one broke.<span class="user-name">Rajas</span>
                         has been modelling some designs and has identified the stress points. We will be using 3d printing for the new design that we model.
-                        <br><a style="color: #bb86fc;" href="https://x.com/Rajas_Naik06/status/1937157552569299363"> VTOL Design Update: Von Mises Stress Analysis & 3D Printing Pivot (June 2025) </a>
+                        <br><a class="log-link" href="https://x.com/Rajas_Naik06/status/1937157552569299363"> VTOL Design Update: Von Mises Stress Analysis & 3D Printing Pivot (June 2025) </a>
                     </p>
                 </div>
             </div>
             
-            <div class="log-entry" data-aos="fade-up" data-year="2025">
+            <div class="log-entry" data-year="2025">
                 <div class="log-header">
                     <h2>Flight Visualizer and Heavy Coding</h2>
                     <span class="log-date">Tuesday, 27 May, 2025</span>
@@ -345,7 +342,7 @@
                 </div>
             </div>
          
-            <div class="log-entry" data-aos="fade-up" data-year="2025">
+            <div class="log-entry" data-year="2025">
                 <div class="log-header">
                     <h2>New website design</h2>
                     <span class="log-date">Tuesday, 06 May, 2025</span>
@@ -353,12 +350,12 @@
                 <div class="log-content">
                     <p>
                        <span class="user-name">Swar</span> proposed a new website design, with an interactive model of Ironflake as the main attraction. With some great visuals for photo gallery and log updates. The new website will be more minimal, and COOL. We will surely update when the website goes live.<br>
-                       <br><a style="color: #bb86fc;" href="https://x.com/SC_136/status/1919498684859088942"> Check out some sample images of new website design!! </a>
+                       <br><a class="log-link" href="https://x.com/SC_136/status/1919498684859088942"> Check out some sample images of new website design!! </a>
                     </p>
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2025">
+            <div class="log-entry" data-year="2025">
                 <div class="log-header">
                     <h2>Rolling oscillations 😳</h2>
                     <span class="log-date">Tuesday, 29 April, 2025</span>
@@ -366,12 +363,12 @@
                 <div class="log-content">
                     <p>
                        After testing the flight on 26th, <span class="user-name">Rajas</span> started testing the PID with roll stabilization as the first priority. Mounted on the testing stand, with 10 percent throttle, the ironflake started oscillating, and the PID control system, wasn't working out. With gains and factors tested out, we decided to work on the code again, so that we can stop oscilations.<br>
-                       <br><a style="color: #bb86fc;" href="https://x.com/Rajas_Naik06/status/1917166365242192293"> Video of Flight Testing </a>
+                       <br><a class="log-link" href="https://x.com/Rajas_Naik06/status/1917166365242192293"> Video of Flight Testing </a>
                     </p>
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2025">
+            <div class="log-entry" data-year="2025">
                 <div class="log-header">
                     <h2>IRL meeting and some work on joystick and flight module</h2>
                     <span class="log-date">Saturday, 26 April, 2025</span>
@@ -384,7 +381,7 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2025">
+            <div class="log-entry" data-year="2025">
                 <div class="log-header">
                     <h2>Starting flight testing</h2>
                     <span class="log-date">Saturday, 19 April, 2025</span>
@@ -396,7 +393,7 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2025">
+            <div class="log-entry" data-year="2025">
                 <div class="log-header">
                     <h2>No more resets</h2>
                     <span class="log-date">Wednesday, 19 March, 2025</span>
@@ -408,7 +405,7 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2025">
+            <div class="log-entry" data-year="2025">
                 <div class="log-header">
                     <h2>Wafer's work swapping and KABOOM!</h2>
                     <span class="log-date">Friday, 14 March, 2025</span>
@@ -421,7 +418,7 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2025">
+            <div class="log-entry" data-year="2025">
                 <div class="log-header">
                     <h2>Purchase of some parts for the thermals of the battery</h2>
                     <span class="log-date">Sunday, 9 March, 2025</span>
@@ -439,7 +436,7 @@
                 </div>
             </div>
             
-            <div class="log-entry" data-aos="fade-up" data-year="2025">
+            <div class="log-entry" data-year="2025">
                 <div class="log-header">
                     <h2>BLDC motors spinning issue</h2>
                     <span class="log-date">Saturday, 8 February, 2025</span>
@@ -452,7 +449,7 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2025">
+            <div class="log-entry" data-year="2025">
                 <div class="log-header">
                     <h2>Battery Pack and Screen making</h2>
                     <span class="log-date">Tuesday, 4 February, 2025</span>
@@ -464,7 +461,7 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2025">
+            <div class="log-entry" data-year="2025">
                 <div class="log-header">
                     <h2>Transceiving successful</h2>
                     <span class="log-date">Monday, 27 January, 2025</span>
@@ -477,7 +474,7 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2025">
+            <div class="log-entry" data-year="2025">
                 <div class="log-header">
                     <h2>Ordering Power 🔋</h2>
                     <span class="log-date">Thursday, 23 January, 2025</span>
@@ -495,7 +492,7 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2025">
+            <div class="log-entry" data-year="2025">
                 <div class="log-header">
                     <h2>New design for the motor holders and new wafer on the remote</h2>
                     <span class="log-date">Thursday, 16 January, 2025</span>
@@ -510,7 +507,7 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2025">
+            <div class="log-entry" data-year="2025">
                 <div class="log-header">
                     <h2>New vtol frame developed successfully</h2>
                     <span class="log-date">Sunday, 5 January, 2025</span>
@@ -522,7 +519,7 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2024">
+            <div class="log-entry" data-year="2024">
                 <div class="log-header">
                     <h2>3d parts placed together</h2>
                     <span class="log-date">Thursday, 19 December, 2024</span>
@@ -534,7 +531,7 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2024">
+            <div class="log-entry" data-year="2024">
                 <div class="log-header">
                     <h2>Mechanism testing</h2>
                     <span class="log-date">Friday, 13 December, 2024</span>
@@ -546,7 +543,7 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2024">
+            <div class="log-entry" data-year="2024">
                 <div class="log-header">
                     <h2>A cheap buy</h2>
                     <span class="log-date">Monday, 9 December, 2024</span>
@@ -558,7 +555,7 @@
                 </div>
             </div>            
             
-            <div class="log-entry" data-aos="fade-up" data-year="2024">
+            <div class="log-entry" data-year="2024">
                 <div class="log-header">
                     <h2>More purchases</h2>
                     <span class="log-date">Saturday, 7 December, 2024</span>
@@ -577,7 +574,7 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2024">
+            <div class="log-entry" data-year="2024">
                 <div class="log-header">
                     <h2>The 3d-print arrives</h2>
                     <span class="log-date">Wednesday, 30 October, 2024</span>
@@ -589,7 +586,7 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2024">
+            <div class="log-entry" data-year="2024">
                 <div class="log-header">
                     <h2>Ordering the thing</h2>
                     <span class="log-date">Monday, 28 October, 2024</span>
@@ -601,7 +598,7 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2024">
+            <div class="log-entry" data-year="2024">
                 <div class="log-header">
                     <h2>Best solderer</h2>
                     <span class="log-date">Friday, 25 October, 2024</span>
@@ -609,12 +606,12 @@
                 <div class="log-content">
                     <p>
                       And he delivers. <span class="user-name">Rajas</span> does what he always does. Best soldering work, with clean and simple design. Check this out:
-                      <a style="color: #bb86fc;" href="https://x.com/Raw_scientist/status/1850919908525355029"> Photos of the reciever module </a>
+                      <a class="log-link" href="https://x.com/Raw_scientist/status/1850919908525355029"> Photos of the reciever module </a>
                     </p>
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2024">
+            <div class="log-entry" data-year="2024">
                 <div class="log-header">
                     <h2>Receiver soldering</h2>
                     <span class="log-date">Saturday, 23 October, 2024</span>
@@ -627,7 +624,7 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2024">
+            <div class="log-entry" data-year="2024">
                 <div class="log-header">
                     <h2>Gyro implementation</h2>
                     <span class="log-date">Wednesday, 16 October, 2024</span>
@@ -640,7 +637,7 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2024">
+            <div class="log-entry" data-year="2024">
                 <div class="log-header">
                     <h2>Power Beast</h2>
                     <span class="log-date">Friday, 11 October, 2024</span>
@@ -652,7 +649,7 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2024">
+            <div class="log-entry" data-year="2024">
                 <div class="log-header">
                     <h2>Dragonfly ✅</h2>
                     <span class="log-date">Tuesady, 8 October, 2024</span>
@@ -665,7 +662,7 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2024">
+            <div class="log-entry" data-year="2024">
                 <div class="log-header">
                     <h2>New changes for the new motor</h2>
                     <span class="log-date">Wednesday, 2 October, 2024</span>
@@ -677,7 +674,7 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2024">
+            <div class="log-entry" data-year="2024">
                 <div class="log-header">
                     <h2>Team meetings</h2>
                     <span class="log-date">September, 2024</span>
@@ -690,7 +687,7 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2024">
+            <div class="log-entry" data-year="2024">
                 <div class="log-header">
                     <h2>Pipe shopping</h2>
                     <span class="log-date">Wednesday, August 7, 2024</span>
@@ -702,7 +699,7 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2024">
+            <div class="log-entry" data-year="2024">
                 <div class="log-header">
                     <h2>BMS Shopping</h2>
                     <span class="log-date">Tuesday, August 6, 2024</span>
@@ -714,7 +711,7 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2024">
+            <div class="log-entry" data-year="2024">
                 <div class="log-header">
                     <h2>Fisiks</h2>
                     <span class="log-date">Sunday, August 4, 2024</span>
@@ -726,7 +723,7 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2024">
+            <div class="log-entry" data-year="2024">
                 <div class="log-header">
                     <h2>More Shopping</h2>
                     <span class="log-date">Tuesday, July 23, 2024</span>
@@ -744,7 +741,7 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2024">
+            <div class="log-entry" data-year="2024">
                 <div class="log-header">
                     <h2>Delivery and Testing</h2>
                     <span class="log-date">Monday, July 16, 2024</span>
@@ -756,7 +753,7 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2024">
+            <div class="log-entry" data-year="2024">
                 <div class="log-header">
                     <h2>Live Shopping</h2>
                     <span class="log-date">Friday, July 12, 2024</span>
@@ -776,7 +773,7 @@
                 </div>
             </div>
             
-            <div class="log-entry" data-aos="fade-up" data-year="2024">
+            <div class="log-entry" data-year="2024">
                 <div class="log-header">
                     <h2>More Discussion</h2>
                     <span class="log-date">Monday, July 9, 2024</span>
@@ -798,7 +795,7 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2024">
+            <div class="log-entry" data-year="2024">
                 <div class="log-header">
                     <h2>Real use of code</h2>
                     <span class="log-date">Sunday, July 7, 2024</span>
@@ -808,12 +805,12 @@
                       <span class="user-name">Rajas</span> with the help of <span class="user-name">Norwin</span>'s and <span class="user-name">Swar</span>'s code has succesfully tested the working of servo. The transmitter is
            giving the instructions properly while the receiver is capturing the movements of the server and showing proper output.
            The servo was wirelessly controlled using NRF24L01!
-           <a style="color: #bb86fc;" href="https://x.com/RAWscientists/status/1809912879140704360">Watch this video made by Rajas Naik</a>
+           <a class="log-link" href="https://x.com/RAWscientists/status/1809912879140704360">Watch this video made by Rajas Naik</a>
                     </p>
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2024">
+            <div class="log-entry" data-year="2024">
                 <div class="log-header">
                     <h2>Best result of intensive coding</h2>
                     <span class="log-date">Monday, July 1, 2024</span>
@@ -826,7 +823,7 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2024">
+            <div class="log-entry" data-year="2024">
                 <div class="log-header">
                     <h2>Result of intensive coding</h2>
                     <span class="log-date">Tuesday, June 18, 2024</span>
@@ -836,24 +833,24 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2024">
+            <div class="log-entry" data-year="2024">
                 <div class="log-header">
                     <h2>More Parts</h2>
                     <span class="log-date">Monday, June 10, 2024</span>
                 </div>
                 <div class="log-content">
-                    <p>The following parts were purchased by:<br>          
-                      <ol>
-                      <li>Data Cable (1)</li>
-                      <li>NRF24L01 3.3v Adapter Module (2)</li>
-                      <li>100μF Capacitor (2)</li>
-                      <li>10μF Capacitor (2)</li>
-                      <li>GPIO Header pin (8)</li>
-                    </p>
+                    <p>The following parts were purchased:</p>
+                    <ol>
+                        <li>Data Cable (1)</li>
+                        <li>NRF24L01 3.3v Adapter Module (2)</li>
+                        <li>100μF Capacitor (2)</li>
+                        <li>10μF Capacitor (2)</li>
+                        <li>GPIO Header pin (8)</li>
+                    </ol>
                 </div>
             </div>
               
-            <div class="log-entry" data-aos="fade-up" data-year="2024">
+            <div class="log-entry" data-year="2024">
                 <div class="log-header">
                     <h2>Intensive Coding</h2>
                     <span class="log-date">Sunday, June 9, 2024</span>
@@ -865,7 +862,7 @@
                 </div>
             </div>            
                         
-            <div class="log-entry" data-aos="fade-up" data-year="2024">
+            <div class="log-entry" data-year="2024">
                 <div class="log-header">
                     <h2>The Beginning</h2>
                     <span class="log-date">Friday, June 7, 2024</span>
@@ -890,7 +887,7 @@
                 </div>
             </div>
 
-            <div class="log-entry" data-aos="fade-up" data-year="2024">
+            <div class="log-entry" data-year="2024">
                 <div class="log-header">
                     <h2>Decision Making</h2>
                     <span class="log-date">Tuesday, June 4, 2024</span>
@@ -913,86 +910,6 @@
     <!-- Back to Top Button -->
     <a href="#page-top" id="back-to-top-btn" title="Go to top" aria-label="Back to top">&#8679;</a>
 
-    <script src="script.js"></script>
-    <script>
-        // Initialize AOS animation library
-        document.addEventListener('DOMContentLoaded', function() {
-            AOS.init({
-                duration: 800,
-                offset: 100,
-                once: true,
-                disable: 'mobile' // Disable on mobile for better performance
-            });
-            
-            // Log filtering functionality
-            setupLogFiltering();
-        });
-        
-        function setupLogFiltering() {
-            const searchInput = document.getElementById('log-search');
-            const logEntries = document.querySelectorAll('.log-entry');
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            
-            // Search functionality with debouncing for better performance
-            let searchTimeout;
-            searchInput.addEventListener('input', function() {
-                clearTimeout(searchTimeout);
-                searchTimeout = setTimeout(filterLogs, 150);
-            });
-            
-            // Year filter buttons
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                    filterLogs();
-                });
-            });
-            
-            function filterLogs() {
-                const searchTerm = searchInput.value.toLowerCase();
-                const activeFilter = document.querySelector('.filter-btn.active').id.replace('filter-', '');
-                
-                // Temporarily disable transitions for instant filtering
-                const logsContainer = document.querySelector('.logs-container');
-                logsContainer.style.transition = 'none';
-                
-                // Use requestAnimationFrame for smoother UI updates
-                requestAnimationFrame(() => {
-                    let visibleCount = 0;
-                    
-                    logEntries.forEach(entry => {
-                        const content = entry.textContent.toLowerCase();
-                        const year = entry.dataset.year;
-                        
-                        // Check if entry matches both search term and year filter
-                        const matchesSearch = content.includes(searchTerm);
-                        const matchesYear = activeFilter === 'all' || year === activeFilter;
-                        
-                        if (matchesSearch && matchesYear) {
-                            entry.style.display = '';
-                            // Remove and re-add AOS attributes to prevent animation lag
-                            entry.classList.add('aos-animate');
-                            visibleCount++;
-                        } else {
-                            entry.style.display = 'none';
-                            // Remove animation class from hidden entries
-                            entry.classList.remove('aos-animate');
-                        }
-                    });
-                    
-                    // Re-enable transitions after filtering
-                    setTimeout(() => {
-                        logsContainer.style.transition = '';
-                    }, 50);
-                    
-                    // Only refresh AOS if there are visible entries
-                    if (visibleCount > 0) {
-                        AOS.refresh();
-                    }
-                });
-            }
-        }
-    </script>
+    <script src="Logic/js/script.js"></script>
 </body>
 </html>

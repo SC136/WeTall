@@ -19,20 +19,17 @@
         content="Meet the talented engineers behind Project IronFlake - Swar, Rajas, and Sahil. Learn about their expertise in VTOL development and flight control systems.">
     <meta property="og:image" content="https://ironflake.is-local.org/Assets/model-poster.png">
     <meta property="og:url" content="https://ironflake.is-local.org/team.html">
-    <meta name="theme-color" content="#1a1a1a">
     <!-- Favicon -->
     <link rel="shortcut icon" href="Assets/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Logic/css/style.css">
 
     <!-- Font Awesome for social icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- Animation library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 
-<body id="page-top">
+<body id="page-top" class="team-page">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <header>
         <h1>Our Team</h1>
@@ -52,7 +49,7 @@
 
     <main id="main-content">
         <div class="team-container">
-            <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="team-card">
                 <img class="team-avatar" src="Assets/rajas2.jpeg" alt="Rajas Naik profile photo">
                 <h2 class="team-name">Rajas Naik</h2>
                 <div class="team-role">Lead/HardWare</div>
@@ -65,7 +62,7 @@
                         rel="noopener noreferrer"><i class="fab fa-github"></i></a>
                 </div>
             </div>
-            <div class="team-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="team-card">
                 <img class="team-avatar" src="Assets/karpe.jpeg" alt="Sahil Karpe profile photo">
                 <h2 class="team-name">Sahil Karpe</h2>
                 <div class="team-role">Mathematician/Logger</div>
@@ -93,16 +90,7 @@
     <!-- Back to Top Button -->
     <a href="#page-top" id="back-to-top-btn" title="Go to top" aria-label="Back to top">&#8679;</a>
 
-    <script src="script.js"></script>
-    <script>
-        // Initialize AOS animation library
-        document.addEventListener('DOMContentLoaded', function () {
-            AOS.init({
-                duration: 800,
-                once: true
-            });
-        });
-    </script>
+    <script src="Logic/js/script.js"></script>
 </body>
 
 </html>
