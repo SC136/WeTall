@@ -23,15 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Make log cards easier to scan with optional collapse behavior
     setupLogEntryToggles();
-    
-    // Handle keyboard accessibility
-    setupKeyboardNavigation();
 
     // Apply image performance defaults for gallery assets
     setupGalleryImagePerformance();
-    
-    // Handle image lazy loading
-    setupLazyLoading();
     
     // Add animation for page elements and initialize visible elements
     animateOnScroll();
@@ -77,111 +71,6 @@ function isElementInViewport(el) {
     );
 }
 
-// --- Modal Logic --- 
-var modal = document.getElementById("imageModal");
-var modalImg = document.getElementById("modalImage");
-var modalCaption = document.getElementById("modalTitle");
-
-// Trap focus within modal when open
-function trapFocus(element) {
-    const focusableElements = element.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-    const firstFocusableElement = focusableElements[0];
-    const lastFocusableElement = focusableElements[focusableElements.length - 1];
-    
-    // Set keydown event
-    element.addEventListener('keydown', function(e) {
-        const isTabPressed = e.key === 'Tab' || e.keyCode === 9;
-        
-        if (!isTabPressed) return;
-        
-        if (e.shiftKey) {
-            // If shift key pressed for shift + tab combination
-            if (document.activeElement === firstFocusableElement) {
-                lastFocusableElement.focus(); // Move to last focusable element
-                e.preventDefault();
-            }
-        } else {
-            // If tab key is pressed without shift
-            if (document.activeElement === lastFocusableElement) {
-                firstFocusableElement.focus(); // Move to first focusable element
-                e.preventDefault();
-            }
-        }
-    });
-}
-
-// Improved modal open function
-function openModal(imgSrc, altText) {
-    if (modal && modalImg) {
-        document.body.style.overflow = 'hidden'; // Prevent scrolling behind modal
-        modal.style.display = "flex";
-        modalImg.src = imgSrc;
-        
-        // Set alt text from image or parameter
-        const alt = altText || "Gallery image";
-        modalImg.alt = alt;
-        modalCaption.textContent = alt;
-        
-        // Set focus on close button
-        setTimeout(function() {
-            const closeBtn = modal.querySelector('.close-btn');
-            closeBtn.focus();
-        }, 100);
-        
-        // Trap focus in modal
-        trapFocus(modal);
-        
-        // Announce to screen readers
-        announceToScreenReader("Image opened in modal. Press Escape to close.");
-    }
-}
-
-// Improved modal close function
-function closeModal() {
-    if (modal) {
-        modal.style.display = "none";
-        document.body.style.overflow = ''; // Restore scrolling
-        
-        // Return focus to the element that opened the modal
-        if (window.lastFocusedElement) {
-            window.lastFocusedElement.focus();
-        }
-        
-        // Announce to screen readers
-        announceToScreenReader("Modal closed.");
-    }
-}
-
-// Announce messages to screen readers
-function announceToScreenReader(message) {
-    const announcement = document.createElement('div');
-    announcement.setAttribute('aria-live', 'polite');
-    announcement.setAttribute('aria-atomic', 'true');
-    announcement.classList.add('sr-only');
-    announcement.textContent = message;
-    
-    document.body.appendChild(announcement);
-    setTimeout(() => {
-        document.body.removeChild(announcement);
-    }, 1000);
-}
-
-// Close modal with Escape key
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && modal.style.display === 'flex') {
-        closeModal();
-    }
-});
-
-// Optional: Close modal if clicking outside the image
-if (modal) {
-    modal.onclick = function(event) {
-        if (event.target == modal) {
-            closeModal();
-        }
-    }
-}
-
 // --- Model Loader Setup ---
 function setupModelLoader() {
     const modelViewer = document.querySelector('model-viewer');
@@ -210,16 +99,6 @@ function setupModelLoader() {
             if (modelHint) {
                 modelHint.style.opacity = '1';
             }
-            
-            // Scale the model after loading
-            // Access the model and apply scaling
-            // const model = modelViewer.model;
-            // if (model) {
-            //     // Set model scale to 2 times its original size
-            //     modelViewer.scale = '2 2 2'; // Adjust as needed
-            //     // Force update of the model's transform
-            //     modelViewer.updateFraming();
-            // }
         });
         
         // Fallback if load event doesn't fire
@@ -507,54 +386,6 @@ function setupLogsPanelToggle() {
     });
 
     mainContent.insertBefore(toggleButton, panel);
-}
-
-// --- Keyboard Navigation Setup ---
-function setupKeyboardNavigation() {
-    // Make gallery images keyboard navigable
-    const galleryImages = document.querySelectorAll('.gallery-item img');
-    
-    galleryImages.forEach(img => {
-        img.setAttribute('tabindex', '0');
-        img.addEventListener('click', function() {
-            window.lastFocusedElement = this;
-            openModal(this.src, this.alt);
-        });
-        img.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                window.lastFocusedElement = this;
-                openModal(this.src, this.alt);
-            }
-        });
-    });
-}
-
-// --- Lazy Loading Setup ---
-function setupLazyLoading() {
-    if ('loading' in HTMLImageElement.prototype) {
-        // Native lazy loading supported
-        const images = document.querySelectorAll('img[loading="lazy"]');
-        images.forEach(img => {
-            if (img.dataset.src) {
-                img.src = img.dataset.src;
-            }
-        });
-    } else {
-        // Fallback for browsers that don't support native lazy loading
-        const lazyLoadScript = document.createElement('script');
-        lazyLoadScript.src = 'https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js';
-        document.body.appendChild(lazyLoadScript);
-        
-        lazyLoadScript.onload = function() {
-            const observer = lozad('.lozad', {
-                loaded: function(el) {
-                    el.classList.add('loaded');
-                }
-            });
-            observer.observe();
-        }
-    }
 }
 
 function setupGalleryImagePerformance() {

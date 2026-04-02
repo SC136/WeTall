@@ -132,7 +132,6 @@ a:hover, a:focus {
 /* Apply custom focus styles to interactive elements that need them for accessibility */
 .nav-button:focus-visible, 
 .filter-btn:focus-visible,
-.close-btn:focus-visible,
 #back-to-top-btn:focus-visible {
     box-shadow: 0 0 0 3px rgba(139, 240, 226, 0.28);
     outline: none;
@@ -251,54 +250,77 @@ nav ul li a {
 
 .mobile-nav-toggle {
     display: none;
-    width: 44px;
+    width: 50px;
     height: 44px;
     margin: 6px 14px 0 auto;
     padding: 0;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    background: linear-gradient(180deg, rgba(52, 52, 52, 0.95), rgba(30, 30, 30, 0.98));
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(180deg, rgba(58, 58, 58, 0.9), rgba(27, 27, 27, 0.96));
     color: var(--white-text);
+    position: relative;
+    overflow: hidden;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.36), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mobile-nav-toggle:hover {
+    transform: translateY(-1px);
+    border-color: rgba(255, 255, 255, 0.34);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.42), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.mobile-nav-toggle:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 2px;
 }
 
 .mobile-nav-toggle span,
 .mobile-nav-toggle::before,
 .mobile-nav-toggle::after {
     content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
     display: block;
-    width: 20px;
     height: 2px;
     background: currentColor;
-    border-radius: 2px;
-    transition: transform 0.25s ease, opacity 0.2s ease;
+    border-radius: 99px;
+    transform-origin: center;
+    transition: transform 0.25s ease, opacity 0.2s ease, width 0.25s ease;
 }
 
 .mobile-nav-toggle span {
-    position: relative;
+    width: 22px;
+    transform: translate(-50%, -50%);
 }
 
 .mobile-nav-toggle::before {
-    transform: translateY(-6px);
+    width: 16px;
+    transform: translate(-50%, -8px);
 }
 
 .mobile-nav-toggle::after {
-    transform: translateY(6px);
-    margin-top: -2px;
+    width: 12px;
+    transform: translate(-50%, 6px);
 }
 
 body.nav-open .mobile-nav-toggle span {
     opacity: 0;
+    transform: translate(-50%, -50%) scale(0.7);
 }
 
 body.nav-open .mobile-nav-toggle::before {
-    transform: translateY(0) rotate(45deg);
+    width: 20px;
+    transform: translate(-50%, -50%) rotate(45deg);
 }
 
 body.nav-open .mobile-nav-toggle::after {
-    transform: translateY(0) rotate(-45deg);
+    width: 20px;
+    transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 nav ul li a:hover, nav ul li a:focus {
@@ -579,8 +601,8 @@ main {
     aspect-ratio: 4 / 3;
     object-fit: cover;
     background-color: rgba(255, 255, 255, 0.03);
-    opacity: 0;
-    transition: transform 0.3s ease;
+    opacity: 1;
+    transition: opacity 0.2s ease, transform 0.3s ease;
     cursor: pointer;
     position: relative;
     z-index: 2;
@@ -824,7 +846,7 @@ main {
     margin-bottom: 10px;
     border-bottom: 1px solid #444;
     padding-bottom: 8px;
-    cursor: default;
+    cursor: pointer;
 }
 
 .log-header:focus-visible {
@@ -1005,6 +1027,10 @@ footer {
 }
 
 @media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
     .animate-on-scroll,
     .log-entry,
     .team-card,
@@ -1049,72 +1075,6 @@ footer {
 #back-to-top-btn.show {
     opacity: 1;
     visibility: visible;
-}
-
-/* Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.9);
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
-    margin: auto;
-    display: block;
-    max-width: 85%;
-    max-height: 85vh;
-    object-fit: contain;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-}
-
-.modal-caption {
-    color: var(--light-text);
-    text-align: center;
-    padding: 10px;
-    max-width: 80%;
-    margin: 0 auto;
-}
-
-/* Close Button */
-.close-btn {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: var(--white-text);
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-    padding: 8px;
-    border-radius: 50%;
-    background-color: transparent;
-    line-height: 0.6;
-}
-
-.close-btn:hover,
-.close-btn:focus {
-    color: var(--accent-teal);
-    text-decoration: none;
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Add Animation (optional) */
-.modal-content {
-    animation-name: zoom;
-    animation-duration: 0.4s;
-}
-
-@keyframes zoom {
-    from {transform:scale(0.5); opacity: 0;}
-    to {transform:scale(1); opacity: 1;}
 }
 
 /* Footer */
@@ -1321,17 +1281,6 @@ footer p {
         padding: 15px;
     }
     
-    .close-btn {
-        top: 10px;
-        right: 20px;
-        font-size: 30px;
-    }
-    
-    .modal-content {
-        max-width: 95%;
-        max-height: 80vh;
-    }
-
     .index-page h1 {
         margin-top: 20px;
         margin-bottom: 8px;
@@ -1425,8 +1374,8 @@ footer p {
     #back-to-top-btn {
         bottom: 14px;
         right: 12px;
-        width: 42px;
-        height: 42px;
+        width: 44px;
+        height: 44px;
         padding: 0;
         border-radius: 10px;
         font-size: 14px;
@@ -1591,7 +1540,7 @@ footer p {
 
     .index-page model-viewer {
         width: 92vw;
-        height: 300px;
+        height: 280px;
     }
 
     .index-page .button-container {
