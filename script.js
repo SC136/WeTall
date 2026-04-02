@@ -1,0 +1,571 @@
+// --- Document Ready Function ---
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle model loading
+    setupModelLoader();
+
+    // Keep active navigation state in sync automatically across pages
+    setActiveNavLink();
+
+    // Add contextual gallery captions based on image metadata
+    setupGalleryCaptions();
+
+    // Group logs visually by year markers for faster scanning
+    insertLogYearMarkers();
+
+    // Enable search/year filtering behavior on logs page
+    setupLogsFiltering();
+
+    // Hide/show logs search panel with a compact sticky toggle
+    setupLogsPanelToggle();
+
+    // Make log cards easier to scan with optional collapse behavior
+    setupLogEntryToggles();
+    
+    // No longer needed since contact form is removed
+    // setupContactForm();
+    
+    // Handle keyboard accessibility
+    setupKeyboardNavigation();
+
+    // Apply image performance defaults for gallery assets
+    setupGalleryImagePerformance();
+    
+    // Handle image lazy loading
+    setupLazyLoading();
+    
+    // Add animation for page elements and initialize visible elements
+    animateOnScroll();
+    initializeVisibleElements();
+});
+
+// --- Back to Top Button Logic --- 
+let backToTopButton = document.getElementById("back-to-top-btn");
+
+// Improved scroll function with throttling
+let scrollTimeout;
+window.onscroll = function() {
+    if (!scrollTimeout) {
+        scrollTimeout = setTimeout(function() {
+            scrollFunction();
+            scrollTimeout = null;
+        }, 100); // Throttle to improve performance
+    }
+};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        backToTopButton?.classList.add("show");
+    } else {
+        backToTopButton?.classList.remove("show");
+    }
+    
+    // Add animation to elements when they scroll into view
+    const animElements = document.querySelectorAll('.animate-on-scroll:not(.animated)');
+    animElements.forEach(element => {
+        if (isElementInViewport(element)) {
+            element.classList.add('animated');
+        }
+    });
+}
+
+// Check if an element is in viewport
+function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.bottom >= 0
+    );
+}
+
+// --- Modal Logic --- 
+var modal = document.getElementById("imageModal");
+var modalImg = document.getElementById("modalImage");
+var modalCaption = document.getElementById("modalTitle");
+
+// Trap focus within modal when open
+function trapFocus(element) {
+    const focusableElements = element.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    const firstFocusableElement = focusableElements[0];
+    const lastFocusableElement = focusableElements[focusableElements.length - 1];
+    
+    // Set keydown event
+    element.addEventListener('keydown', function(e) {
+        const isTabPressed = e.key === 'Tab' || e.keyCode === 9;
+        
+        if (!isTabPressed) return;
+        
+        if (e.shiftKey) {
+            // If shift key pressed for shift + tab combination
+            if (document.activeElement === firstFocusableElement) {
+                lastFocusableElement.focus(); // Move to last focusable element
+                e.preventDefault();
+            }
+        } else {
+            // If tab key is pressed without shift
+            if (document.activeElement === lastFocusableElement) {
+                firstFocusableElement.focus(); // Move to first focusable element
+                e.preventDefault();
+            }
+        }
+    });
+}
+
+// Improved modal open function
+function openModal(imgSrc, altText) {
+    if (modal && modalImg) {
+        document.body.style.overflow = 'hidden'; // Prevent scrolling behind modal
+        modal.style.display = "flex";
+        modalImg.src = imgSrc;
+        
+        // Set alt text from image or parameter
+        const alt = altText || event.target.alt || "Gallery image";
+        modalImg.alt = alt;
+        modalCaption.textContent = alt;
+        
+        // Set focus on close button
+        setTimeout(function() {
+            const closeBtn = modal.querySelector('.close-btn');
+            closeBtn.focus();
+        }, 100);
+        
+        // Trap focus in modal
+        trapFocus(modal);
+        
+        // Announce to screen readers
+        announceToScreenReader("Image opened in modal. Press Escape to close.");
+    }
+}
+
+// Improved modal close function
+function closeModal() {
+    if (modal) {
+        modal.style.display = "none";
+        document.body.style.overflow = ''; // Restore scrolling
+        
+        // Return focus to the element that opened the modal
+        if (window.lastFocusedElement) {
+            window.lastFocusedElement.focus();
+        }
+        
+        // Announce to screen readers
+        announceToScreenReader("Modal closed.");
+    }
+}
+
+// Announce messages to screen readers
+function announceToScreenReader(message) {
+    const announcement = document.createElement('div');
+    announcement.setAttribute('aria-live', 'polite');
+    announcement.setAttribute('aria-atomic', 'true');
+    announcement.classList.add('sr-only');
+    announcement.textContent = message;
+    
+    document.body.appendChild(announcement);
+    setTimeout(() => {
+        document.body.removeChild(announcement);
+    }, 1000);
+}
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.style.display === 'flex') {
+        closeModal();
+    }
+});
+
+// Store the element that opened the modal before opening it
+document.addEventListener('click', function(e) {
+    if (e.target.onclick && e.target.onclick.toString().includes('openModal')) {
+        window.lastFocusedElement = e.target;
+    }
+});
+
+// Optional: Close modal if clicking outside the image
+if (modal) {
+    modal.onclick = function(event) {
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+}
+
+// --- Model Loader Setup ---
+function setupModelLoader() {
+    const modelViewer = document.querySelector('model-viewer');
+    const loadingContainer = document.querySelector('.loading-container');
+    const modelHint = document.querySelector('.model-hint');
+    
+    if (modelViewer && loadingContainer) {
+        modelViewer.style.cursor = 'grab';
+        modelViewer.addEventListener('mousedown', function() {
+            modelViewer.style.cursor = 'grabbing';
+        });
+        modelViewer.addEventListener('mouseup', function() {
+            modelViewer.style.cursor = 'grab';
+        });
+        modelViewer.addEventListener('mouseleave', function() {
+            modelViewer.style.cursor = 'grab';
+        });
+
+        modelViewer.addEventListener('load', function() {
+            // Hide loading animation when model is loaded
+            loadingContainer.style.opacity = '0';
+            setTimeout(() => {
+                loadingContainer.style.display = 'none';
+            }, 500);
+
+            if (modelHint) {
+                modelHint.style.opacity = '1';
+            }
+            
+            // Scale the model after loading
+            // Access the model and apply scaling
+            // const model = modelViewer.model;
+            // if (model) {
+            //     // Set model scale to 2 times its original size
+            //     modelViewer.scale = '2 2 2'; // Adjust as needed
+            //     // Force update of the model's transform
+            //     modelViewer.updateFraming();
+            // }
+        });
+        
+        // Fallback if load event doesn't fire
+        setTimeout(() => {
+            if (loadingContainer.style.display !== 'none') {
+                loadingContainer.style.opacity = '0';
+                setTimeout(() => {
+                    loadingContainer.style.display = 'none';
+                }, 500);
+            }
+            if (modelHint) {
+                modelHint.style.opacity = '1';
+            }
+        }, 5000);
+    }
+}
+
+function setActiveNavLink() {
+    const navLinks = document.querySelectorAll('nav a');
+    if (!navLinks.length) {
+        return;
+    }
+
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href') || '';
+        const targetPage = href.split('/').pop();
+        if (targetPage && targetPage === currentPage) {
+            link.classList.add('active');
+        }
+    });
+}
+
+function setupGalleryCaptions() {
+    const galleryItems = document.querySelectorAll('.gallery-container .gallery-item');
+    if (!galleryItems.length) {
+        return;
+    }
+
+    galleryItems.forEach(item => {
+        const image = item.querySelector('img');
+        if (!image || item.querySelector('.gallery-caption')) {
+            return;
+        }
+
+        const caption = document.createElement('p');
+        caption.className = 'gallery-caption';
+        caption.textContent = getGalleryCaptionText(image);
+        item.appendChild(caption);
+    });
+}
+
+function getGalleryCaptionText(image) {
+    const altText = (image.alt || '').trim();
+    const hasGenericAlt = /^gallery image\b/i.test(altText);
+
+    if (altText && !hasGenericAlt) {
+        return altText.replace(/\.\d+$/, '').trim();
+    }
+
+    const sourcePath = image.getAttribute('src') || '';
+    const filename = sourcePath.split('/').pop() || '';
+    const baseName = filename.replace(/\.[^.]+$/, '');
+
+    if (!baseName) {
+        return 'Project gallery image';
+    }
+
+    const formatted = baseName
+        .replace(/[-_]+/g, ' ')
+        .replace(/\b(vtol|diy|pcb|cad|bms|imu|edf)\b/gi, token => token.toUpperCase())
+        .replace(/\b\w/g, ch => ch.toUpperCase())
+        .trim();
+
+    return formatted || 'Project gallery image';
+}
+
+function insertLogYearMarkers() {
+    const logsContainer = document.querySelector('.logs-container');
+    if (!logsContainer) {
+        return;
+    }
+
+    const logEntries = Array.from(logsContainer.querySelectorAll('.log-entry'));
+    let lastYear = null;
+
+    logEntries.forEach(entry => {
+        const year = entry.getAttribute('data-year');
+        if (!year || year === lastYear) {
+            return;
+        }
+
+        const marker = document.createElement('div');
+        marker.className = 'log-year-marker';
+        marker.setAttribute('aria-label', `Logs for year ${year}`);
+        marker.setAttribute('data-year', year);
+        marker.textContent = year;
+        logsContainer.insertBefore(marker, entry);
+        lastYear = year;
+    });
+}
+
+function setupLogsFiltering() {
+    const logsContainer = document.querySelector('.logs-container');
+    const searchInput = document.getElementById('log-search');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const logEntries = Array.from(document.querySelectorAll('.log-entry'));
+
+    if (!logsContainer || !searchInput || !filterButtons.length || !logEntries.length) {
+        return;
+    }
+
+    let activeYear = 'all';
+
+    const emptyState = document.createElement('p');
+    emptyState.className = 'logs-empty-state';
+    emptyState.textContent = 'No logs match the current filter.';
+    emptyState.hidden = true;
+    logsContainer.appendChild(emptyState);
+
+    function applyFilters() {
+        const query = searchInput.value.trim().toLowerCase();
+        let visibleCount = 0;
+
+        logEntries.forEach(entry => {
+            const year = entry.getAttribute('data-year') || '';
+            const text = entry.textContent.toLowerCase();
+            const matchesYear = activeYear === 'all' || year === activeYear;
+            const matchesText = !query || text.includes(query);
+            const isVisible = matchesYear && matchesText;
+
+            entry.classList.toggle('is-hidden', !isVisible);
+            if (isVisible) {
+                visibleCount += 1;
+            }
+        });
+
+        const yearMarkers = Array.from(logsContainer.querySelectorAll('.log-year-marker'));
+        yearMarkers.forEach(marker => {
+            const markerYear = marker.getAttribute('data-year');
+            const hasVisibleEntriesForYear = logEntries.some(entry => {
+                return entry.getAttribute('data-year') === markerYear && !entry.classList.contains('is-hidden');
+            });
+            marker.classList.toggle('is-hidden', !hasVisibleEntriesForYear);
+        });
+
+        emptyState.hidden = visibleCount !== 0;
+    }
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+
+            const id = this.id || '';
+            activeYear = id === 'filter-all' ? 'all' : id.replace('filter-', '');
+            applyFilters();
+        });
+    });
+
+    searchInput.addEventListener('input', applyFilters);
+    applyFilters();
+}
+
+function setupLogEntryToggles() {
+    const logHeaders = document.querySelectorAll('.log-entry .log-header');
+    if (!logHeaders.length) {
+        return;
+    }
+
+    logHeaders.forEach(header => {
+        const entry = header.closest('.log-entry');
+        const content = entry?.querySelector('.log-content');
+        if (!entry || !content) {
+            return;
+        }
+
+        header.setAttribute('role', 'button');
+        header.setAttribute('tabindex', '0');
+        header.setAttribute('aria-expanded', 'true');
+
+        const toggleEntry = () => {
+            const willCollapse = !entry.classList.contains('collapsed');
+            entry.classList.toggle('collapsed', willCollapse);
+            header.setAttribute('aria-expanded', willCollapse ? 'false' : 'true');
+        };
+
+        header.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleEntry();
+            }
+        });
+
+        header.addEventListener('dblclick', toggleEntry);
+    });
+}
+
+function setupLogsPanelToggle() {
+    const panel = document.querySelector('.log-filter');
+    const mainContent = document.getElementById('main-content');
+    if (!panel || !mainContent || document.getElementById('logs-panel-toggle')) {
+        return;
+    }
+
+    panel.id = 'logs-filter-panel';
+
+    const toggleButton = document.createElement('button');
+    toggleButton.id = 'logs-panel-toggle';
+    toggleButton.type = 'button';
+    toggleButton.className = 'logs-panel-toggle';
+    toggleButton.setAttribute('aria-controls', 'logs-filter-panel');
+
+    const savedState = localStorage.getItem('logsPanelOpen');
+    const isOpen = savedState === 'true';
+    panel.classList.toggle('is-collapsed', !isOpen);
+    toggleButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    toggleButton.textContent = isOpen ? 'Hide Search & Filter' : 'Show Search & Filter';
+
+    toggleButton.addEventListener('click', function() {
+        const willOpen = panel.classList.contains('is-collapsed');
+        panel.classList.toggle('is-collapsed', !willOpen);
+        toggleButton.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+        toggleButton.textContent = willOpen ? 'Hide Search & Filter' : 'Show Search & Filter';
+        localStorage.setItem('logsPanelOpen', willOpen ? 'true' : 'false');
+    });
+
+    mainContent.insertBefore(toggleButton, panel);
+}
+
+// --- Contact Form Setup --- (can be removed since we no longer have a contact form)
+function setupContactForm() {
+    // Function content removed since contact form is removed
+}
+
+// --- Keyboard Navigation Setup ---
+function setupKeyboardNavigation() {
+    // Make gallery images keyboard navigable
+    const galleryImages = document.querySelectorAll('.gallery-item img');
+    
+    galleryImages.forEach(img => {
+        img.setAttribute('tabindex', '0');
+        img.addEventListener('click', function() {
+            openModal(this.src, this.alt);
+        });
+        img.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openModal(this.src, this.alt);
+            }
+        });
+    });
+}
+
+// --- Lazy Loading Setup ---
+function setupLazyLoading() {
+    if ('loading' in HTMLImageElement.prototype) {
+        // Native lazy loading supported
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        images.forEach(img => {
+            if (img.dataset.src) {
+                img.src = img.dataset.src;
+            }
+        });
+    } else {
+        // Fallback for browsers that don't support native lazy loading
+        const lazyLoadScript = document.createElement('script');
+        lazyLoadScript.src = 'https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js';
+        document.body.appendChild(lazyLoadScript);
+        
+        lazyLoadScript.onload = function() {
+            const observer = lozad('.lozad', {
+                loaded: function(el) {
+                    el.classList.add('loaded');
+                }
+            });
+            observer.observe();
+        }
+    }
+}
+
+function setupGalleryImagePerformance() {
+    const galleryImages = document.querySelectorAll('.gallery-item img');
+    if (!galleryImages.length) {
+        return;
+    }
+
+    galleryImages.forEach((img, index) => {
+        img.loading = index < 12 ? 'eager' : 'lazy';
+        img.decoding = 'async';
+        img.fetchPriority = index < 12 ? 'high' : 'low';
+
+        if (!img.hasAttribute('width')) {
+            img.setAttribute('width', '1200');
+        }
+        if (!img.hasAttribute('height')) {
+            img.setAttribute('height', '900');
+        }
+
+        const parentItem = img.closest('.gallery-item');
+        if (parentItem) {
+            if (img.complete) {
+                parentItem.classList.add('image-loaded');
+            } else {
+                img.addEventListener('load', function() {
+                    parentItem.classList.add('image-loaded');
+                }, { once: true });
+            }
+        }
+    });
+}
+
+// --- Animate on Scroll ---
+function animateOnScroll() {
+    const elements = document.querySelectorAll('.team-card, .log-entry');
+    elements.forEach((el, index) => {
+        el.classList.add('animate-on-scroll');
+        el.style.transitionDelay = `${Math.min(index, 6) * 0.06}s`;
+    });
+}
+
+// Initialize elements that are visible on page load
+function initializeVisibleElements() {
+    // Make initially visible gallery items appear immediately
+    const animElements = document.querySelectorAll('.animate-on-scroll');
+    animElements.forEach(element => {
+        if (isElementInViewport(element)) {
+            element.classList.add('animated');
+        }
+    });
+}
+
+// --- Skip Link Focus Fix ---
+window.addEventListener('hashchange', function() {
+    if (location.hash === '#main-content') {
+        const contentMain = document.getElementById('main-content');
+        if (contentMain) {
+            contentMain.setAttribute('tabindex', '-1');
+            contentMain.focus();
+        }
+    }
+});
