@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project IronFlake - VTOL Bicopter by WeTall</title>
     
     <!-- SEO Meta Tags -->
@@ -15,20 +16,24 @@
     <meta property="og:description" content="Project IronFlake - An innovative VTOL bicopter with advanced flight control systems and vertical takeoff capabilities. Explore our interactive 3D model and development journey.">
     <meta property="og:image" content="https://ironflake.is-local.org/Assets/model-poster.png">
     <meta property="og:url" content="https://ironflake.is-local.org/">
-    <meta name="theme-color" content="#1a1a1a">
       <!-- Favicon -->
     <link rel="shortcut icon" href="Assets/favicon.png" type="image/x-icon">
     
     <!-- Import the model-viewer component -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Logic/css/style.css">
     
     <!-- Font Awesome for social icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body id="page-top">
+<body id="page-top" class="index-page">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     
     <h1>IronFlake VTOL Bicopter</h1>
+    <section class="hero-section" aria-label="Project introduction">
+        <p class="hero-tagline">Student-built VTOL bicopter engineered through iterative testing.</p>
+        <p class="hero-description">Rotate the live model, explore development logs, and dive into the gallery of prototypes, electronics, and test cycles.</p>
+    </section>
     
     <main id="main-content" class="model-container">
         <!-- Model Loading Animation -->
@@ -36,17 +41,20 @@
             <div class="loading-spinner"></div>
             <p>Loading 3D Model...</p>
         </div>
+        <p class="model-hint" aria-hidden="true">Drag to rotate | Scroll to zoom | Double click to reset view</p>
         
         <!-- Use model-viewer component with improved accessibility -->
         <model-viewer 
-            src="models/vtol_model.glb" 
+            src="Models/vtol_model.glb" 
             alt="Interactive 3D model of the WeTall VTOL Bicopter"
             camera-controls
             auto-rotate
+            camera-orbit="35deg 75deg 95%"
             orientation="100 90 0"
             shadow-intensity="1"
             ar
             ar-modes="webxr scene-viewer quick-look"
+            interaction-prompt="none"
             poster="Assets/model-poster.png"
             loading="eager"
             reveal="auto"
@@ -57,6 +65,21 @@
             </div>
         </model-viewer>
     </main>
+
+    <section class="project-stats" aria-label="Project highlights">
+        <article class="stat-item">
+            <h2 class="stat-value">3+</h2>
+            <p class="stat-label">Core team members</p>
+        </article>
+        <article class="stat-item">
+            <h2 class="stat-value">2024-2026</h2>
+            <p class="stat-label">Active build timeline</p>
+        </article>
+        <article class="stat-item">
+            <h2 class="stat-value">VTOL</h2>
+            <p class="stat-label">Custom bicopter platform</p>
+        </article>
+    </section>
     
     <!-- Button Navigation -->
     <div class="button-container">
@@ -79,6 +102,6 @@
     <!-- Back to Top Button -->
     <a href="#page-top" id="back-to-top-btn" title="Go to top" aria-label="Back to top">&#8679;</a>
 
-    <script src="script.js"></script>
+    <script src="Logic/js/script.js"></script>
 </body>
 </html>
